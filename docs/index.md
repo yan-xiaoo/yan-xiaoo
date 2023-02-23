@@ -1,17 +1,12 @@
-# Welcome to MkDocs
+# 欢迎！
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+欢迎来到李彦筱的个人网站。我对编程非常感兴趣，会写一些解决编程问题的文章。如果你遇到了什么问题，可以试试在上面的**搜索框**中搜一搜。
 
-## Commands
+本站域名：[yan-xiaoo.github.io](https://yan-xiaoo.github.io)
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+临时域名：[kokomi.online](https://www.kokomi.online)（小心海真可爱）
 
-## Project layout
+临时域名可能会由于我之后不想续费而失效。主域名一定是不会失效的。
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+由于网站刚刚于2月底上线，目前内容不多，但我会持续更新，可以持续关注哦
+
