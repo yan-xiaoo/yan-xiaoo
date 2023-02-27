@@ -3,6 +3,8 @@ site_url: http://yan-xiaoo.github.io
 site_author: 李彦筱
 
 nav:
+  - 摆烂记:
+    - 摆烂的本质: bailan/概述.md
   - 随笔:
     - 有道年卡奖学金: diary/有道词典奖学金.md
 
