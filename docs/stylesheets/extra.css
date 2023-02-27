@@ -8,3 +8,8 @@
     --md-primary-fg-color--light: #9c99d5;
     --md-primary-fg-color--dark:  #292c53;
   }
+[data-md-color-scheme="slate"] {
+    --md-primary-fg-color:        #546d78;
+    --md-primary-fg-color--light: #b6b0cc;
+    --md-primary-fg-color--dark:  #4d2e21;
+  }

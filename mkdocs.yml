@@ -1,4 +1,11 @@
 site_name: 个人博客
+site_url: http://yan-xiaoo.github.io
+site_author: 李彦筱
+
+nav:
+  - 随笔:
+    - 有道年卡奖学金: diary/有道词典奖学金.md
+
 theme:
   palette:
     # Palette toggle for light mode
@@ -13,7 +20,7 @@ theme:
       toggle:
         icon: material/brightness-4
         name: 浅色模式
-    - media:
+    - media: 
       scheme: kokomi
       toggle:
         icon: material/brightness-7
@@ -23,9 +30,24 @@ theme:
   features:
     - search.highlight
     - search.share
+    - search.suggest
+    - content.code.copy
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - toc.follow
+  language: zh
+  font:
+    text: Noto Sans SC
 
 plugins:
   - search:
       lang: en
 extra_css:
   - stylesheets/extra.css
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
