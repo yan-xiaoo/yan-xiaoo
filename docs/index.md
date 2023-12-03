@@ -4,9 +4,7 @@
 
 本站域名：[yan-xiaoo.github.io](https://yan-xiaoo.github.io)
 
-临时域名：[kokomi.online](https://www.kokomi.online)（小心海真可爱）
-
-由于网站刚刚于2月底上线，目前内容不多，但我会持续更新，可以持续关注哦
+网站目前内容不多，但我会持续更新，可以持续关注哦
 
 
 

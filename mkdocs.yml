@@ -2,6 +2,11 @@ site_name: 个人博客
 site_url: http://yan-xiaoo.github.io
 site_author: 李彦筱
 
+repo_name: yan-xiaoo.github.io
+repo_url: https://github.com/yan-xiaoo/yan-xiaoo.github.io
+
+copyright: Copyright &copy; 2023-now <a href="https://github.com/yan-xiaoo" target="_blank" rel="noopener noreferrer">yan-xiaoo</a>
+
 nav:
   - 摆烂记:
     - 摆烂的本质: bailan/概述.md
@@ -13,30 +18,32 @@ theme:
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      toggle:
-        icon: simple/kaios
-        name: 特别配色
-    # Palette toggle for dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      toggle:
-        icon: material/brightness-4
-        name: 浅色模式
-    - media: 
-      scheme: kokomi
+      primary: light blue
       toggle:
         icon: material/brightness-7
         name: 深色模式
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: cyan
+      accent: deep purple
+      toggle:
+        icon: material/brightness-4
+        name: 浅色模式
+      
 
   name: material
   features:
     - search.highlight
     - search.share
     - search.suggest
+    - header.autohide
     - content.code.copy
+    - content.code.annotate
     - navigation.tabs
-    - navigation.tabs.sticky
     - navigation.sections
+    - navigation.tracking
+    - navigation.footer
     - navigation.indexes
     - navigation.top
     - toc.follow
@@ -47,8 +54,10 @@ theme:
 plugins:
   - search:
       lang: en
-extra_css:
-  - stylesheets/extra.css
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/yan-xiaoo
 
 markdown_extensions:
   - attr_list
