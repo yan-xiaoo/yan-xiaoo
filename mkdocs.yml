@@ -8,6 +8,19 @@ repo_url: https://github.com/yan-xiaoo/yan-xiaoo.github.io
 copyright: Copyright &copy; 2023-now <a href="https://github.com/yan-xiaoo" target="_blank" rel="noopener noreferrer">yan-xiaoo</a>
 
 nav:
+  - 课程笔记:
+    - 西安交大：数据结构与算法:
+      - 前言: notes/XjtuSeDataStructure/前言.md
+      - 数据结构与算法简介: notes/XjtuSeDataStructure/数据结构与算法设计简介.md
+      - 数学预备知识: notes/XjtuSeDataStructure/数学预备知识.md
+      - 算法复杂度的分析: notes/XjtuSeDataStructure/算法复杂度的分析.md
+      - 排序算法: notes/XjtuSeDataStructure/排序算法.md
+      - 线性表: notes/XjtuSeDataStructure/线性表.md
+      - 栈与队列: notes/XjtuSeDataStructure/栈与队列.md
+      - 二叉树: notes/XjtuSeDataStructure/二叉树.md
+      - 树和森林: notes/XjtuSeDataStructure/树和森林.md
+      - 图: notes/XjtuSeDataStructure/图.md
+      - 查找和散列: notes/XjtuSeDataStructure/查找和散列.md
   - 摆烂记:
     - 摆烂的本质: bailan/概述.md
   - 随笔:
@@ -62,3 +75,5 @@ extra:
 markdown_extensions:
   - attr_list
   - md_in_html
+  - pymdownx.highlight
+  - pymdownx.superfences
