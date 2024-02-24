@@ -8,6 +8,8 @@ repo_url: https://github.com/yan-xiaoo/yan-xiaoo.github.io
 copyright: Copyright &copy; 2023-now <a href="https://github.com/yan-xiaoo" target="_blank" rel="noopener noreferrer">yan-xiaoo</a>
 
 nav:
+  - 博客:
+    - blog/index.md
   - 课程笔记:
     - 西安交大：数据结构与算法:
       - 前言: notes/XjtuSeDataStructure/前言.md
@@ -21,31 +23,25 @@ nav:
       - 树和森林: notes/XjtuSeDataStructure/树和森林.md
       - 图: notes/XjtuSeDataStructure/图.md
       - 查找和散列: notes/XjtuSeDataStructure/查找和散列.md
-  - 摆烂记:
-    - 摆烂的本质: bailan/概述.md
-  - 随笔:
-    - 有道年卡奖学金: diary/有道词典奖学金.md
 
 theme:
   palette:
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: light blue
       toggle:
-        icon: material/brightness-7
+        icon: material/weather-night
         name: 深色模式
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: cyan
-      accent: deep purple
       toggle:
-        icon: material/brightness-4
+        icon: material/weather-sunny
         name: 浅色模式
       
 
   name: material
+  custom_dir: overrides
   features:
     - search.highlight
     - search.share
@@ -67,10 +63,26 @@ theme:
 plugins:
   - search:
       lang: en
+  - blog:
+      blog_dir: blog
+      post_readtime: true
+      post_date_format: full
+      authors_file: "{blog}/.author.yml"
+  - rss:
+      match_path: blog/posts/.* 
+      date_from_meta:
+        as_creation: date
+      categories:
+        - categories
+        - tags
+
 extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/yan-xiaoo
+
+extra_css:
+  - stylesheets/extra.css
 
 markdown_extensions:
   - attr_list
