@@ -1,0 +1,3014 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人在学习中的一些记录">
+      
+      
+        <meta name="author" content="李彦筱">
+      
+      
+        <link rel="canonical" href="https://yan-xiaoo.github.io/notes/XjtuSeDataStructure/%E5%9B%BE/">
+      
+      
+        <link rel="prev" href="../%E6%A0%91%E5%92%8C%E6%A3%AE%E6%9E%97/">
+      
+      
+        <link rel="next" href="../%E6%9F%A5%E6%89%BE%E5%92%8C%E6%95%A3%E5%88%97/">
+      
+      
+        <link rel="alternate" type="application/rss+xml" title="RSS 订阅" href="../../../feed_rss_created.xml">
+        <link rel="alternate" type="application/rss+xml" title="已更新内容的 RSS 订阅" href="../../../feed_rss_updated.xml">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.11">
+    
+    
+      
+        <title>图 - 彦筱的小站</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e359304.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans SC";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="彦筱的小站" class="md-header__button md-logo" aria-label="彦筱的小站" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            彦筱的小站
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              图
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/yan-xiaoo/yan-xiaoo.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    yan-xiaoo.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../blog/" class="md-tabs__link">
+          
+  
+    
+  
+  博客
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../%E5%89%8D%E8%A8%80/" class="md-tabs__link">
+          
+  
+    
+  
+  课程笔记
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="彦筱的小站" class="md-nav__button md-logo" aria-label="彦筱的小站" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    彦筱的小站
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/yan-xiaoo/yan-xiaoo.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    yan-xiaoo.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../blog/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    博客
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            博客
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    归档
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            归档
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/archive/2024/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2024
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/archive/2023/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2023
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    分类
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            分类
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/category/requests/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    requests
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/category/%E6%91%86%E7%83%82/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    摆烂
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/category/%E6%97%A5%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    日记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/category/%E8%87%AA%E5%8A%A8%E5%8C%96/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    自动化
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    课程笔记
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            课程笔记
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    西安交大：数据结构与算法
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            西安交大：数据结构与算法
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%89%8D%E8%A8%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    前言
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E7%AE%80%E4%BB%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据结构与算法简介
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E5%AD%A6%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数学预备知识
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AE%97%E6%B3%95%E5%A4%8D%E6%9D%82%E5%BA%A6%E7%9A%84%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    算法复杂度的分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    排序算法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%BA%BF%E6%80%A7%E8%A1%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    线性表
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    栈与队列
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%BA%8C%E5%8F%89%E6%A0%91/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    二叉树
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A0%91%E5%92%8C%E6%A3%AE%E6%9E%97/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    树和森林
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    图
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    图
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      图的基本概念
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="图的基本概念">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      顶点数量与边数量的关系
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      子图
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      顶点相关概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      路径
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      图的连通
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adt" class="md-nav__link">
+    <span class="md-ellipsis">
+      图的 ADT
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="图的 ADT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      图的两种实现方法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      图的相邻矩阵实现
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      图的邻接表实现
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      图的遍历
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="图的遍历">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      深度优先搜索（DFS）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dfs_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      DFS 的时间复杂度分析
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dfs_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      DFS 的具体实现
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      广度优先遍历（BFS）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bfs_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      BFS 的时间复杂度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bfs_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      BFS 的具体实现
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dfsbfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      DFS与BFS比较
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      拓扑排序
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="拓扑排序">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      如何把一个具体的问题用图表示？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aov" class="md-nav__link">
+    <span class="md-ellipsis">
+      AOV 网的定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      拓扑排序
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      拓扑排序的实现
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      最短路径问题
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="最短路径问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      三种具体问题
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dijkstra" class="md-nav__link">
+    <span class="md-ellipsis">
+      最短路径的 Dijkstra 算法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="最短路径的 Dijkstra 算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      算法思想
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      算法分析
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      算法的具体实现、
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      算法的改进
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      最小支撑树
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="最小支撑树">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prim 算法——从点出发
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kruskal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kruskal 算法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%9F%A5%E6%89%BE%E5%92%8C%E6%95%A3%E5%88%97/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    查找和散列
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      图的基本概念
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="图的基本概念">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      顶点数量与边数量的关系
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      子图
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      顶点相关概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      路径
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      图的连通
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adt" class="md-nav__link">
+    <span class="md-ellipsis">
+      图的 ADT
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="图的 ADT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      图的两种实现方法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      图的相邻矩阵实现
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      图的邻接表实现
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      图的遍历
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="图的遍历">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      深度优先搜索（DFS）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dfs_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      DFS 的时间复杂度分析
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dfs_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      DFS 的具体实现
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      广度优先遍历（BFS）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bfs_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      BFS 的时间复杂度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bfs_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      BFS 的具体实现
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dfsbfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      DFS与BFS比较
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      拓扑排序
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="拓扑排序">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      如何把一个具体的问题用图表示？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aov" class="md-nav__link">
+    <span class="md-ellipsis">
+      AOV 网的定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      拓扑排序
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      拓扑排序的实现
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      最短路径问题
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="最短路径问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      三种具体问题
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dijkstra" class="md-nav__link">
+    <span class="md-ellipsis">
+      最短路径的 Dijkstra 算法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="最短路径的 Dijkstra 算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      算法思想
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      算法分析
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      算法的具体实现、
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      算法的改进
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      最小支撑树
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="最小支撑树">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prim 算法——从点出发
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kruskal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kruskal 算法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="_1">图</h1>
+<blockquote>
+<p>作者：李彦筱</p>
+<p>感谢学长 <a href="https://github.com/yijunquan-afk">yijunquan</a> 的<a href="https://github.com/yijunquan-afk/XJTUSE-NOTES">软件工程笔记</a>给我的启发。此笔记从二叉树开始的部分中使用了学长笔记中的部分图片以及文字。
+</p>
+</blockquote>
+<h2 id="_2">图的基本概念</h2>
+<p>图上的节点是“平等的”。二叉树的节点之间是有父子关系的，而且会有一个“绝对的顶点”根节点，知道他就可以访问整棵树；但是，图上的节点没有“父子关系”。</p>
+<p>图的定义中<strong>包含两个集合</strong>：</p>
+<ol>
+<li>V: 顶点集合 V={x|x是一个节点}</li>
+</ol>
+<p>V 必须是有限的，且<strong>不能为空集</strong></p>
+<ol>
+<li>E={<x，y>|x，y都属于V，并且x连接到y}</li>
+</ol>
+<p>E是两个顶点之间的关系的集合，<strong>可以是空集</strong></p>
+<p>E 相关的性质：</p>
+<ul>
+<li>
+<p>如果<x, y>属于E，那么表示x到y的一条弧(arc)，且x称为尾(tail)，y称为头(head),具有这种性质的图称为<strong>有向图(digraph)</strong></p>
+</li>
+<li>
+<p>如果<x,y>属于E，必有<y,x>也属于E，则用无序对(x, y)代替这两个有序对，表示x和y之间的一条边(edge)， 也就是说，(x, y) 代表了 <x,y>, <y,x> 都在E集合中。</p>
+</li>
+<li>
+<p>如果在一个图当中，对于任何<x,y>属于E，都存在<y,x>属于E，那么这个图是<strong>无向图</strong>。</p>
+</li>
+</ul>
+<p>根据定义，无向图上的 E（关系集合）满足对称性（离散数学里那个）。</p>
+<ul>
+<li>无向图可以看成一种特殊的有向图</li>
+</ul>
+<p>这是因为，如果你把无向图的一条边拆成两条弧，那它确实就满足有向图的定义了</p>
+<p>离散数学里头，A上关系的定义如下所示：</p>
+<p>如果对于一个集合A，有集合 R 被包含于 AxA 中，则称R为A上的一个关系。</p>
+<p>可以把图定义中的V类比为A，E类比为R。</p>
+<h3 id="_3">顶点数量与边数量的关系</h3>
+<p>当不考虑顶点到自身的弧/边时（即E是反自反的时候），顶点数量|V|和边数量|E|有着如下关系</p>
+<ol>
+<li>如果G是无向图（E满足对称性），|E|的取值范围是0到|V|(|V|-1)/2</li>
+</ol>
+<blockquote>
+<p>这个取值范围是因为：最大时，每个顶点与其他所有顶点都有关系，共有 |V|*|V-1| 的关系；但是，无向图把两个顶点之间来回的两条关系算为一条（<x,y> ^ <y,x> &lt;-&gt; (x,y)），所以要除2</p>
+</blockquote>
+<p>当|E|为最大值时，该无向图称为<strong>完全图</strong></p>
+<ol>
+<li>如果G是有向图，|E|的取值范围是0到|V|(|V|-1)</li>
+</ol>
+<blockquote>
+<p>这个取值范围是因为：最大时，每个顶点与其他所有顶点都有关系，共有 |V|*|V-1| 的关系。有向图里头不会把两个顶点来回的两条关系算为一条。</p>
+</blockquote>
+<p>当|E|为最大值时，该有向图称为<strong>有向完全图</strong></p>
+<ol>
+<li>如果G中有少量的边或弧(|E|&lt;|V| log|V|)时，称该G为<strong>稀疏图</strong>,反之称为<strong>稠密图</strong></li>
+</ol>
+<p>注：|E|&lt;|V| log|V| 只是一个根据经验的定义，不是说你必须按照这个标准判断一切图的稀疏/稠密图。</p>
+<p>当G中的边或弧具有与它相关的数,这种与图的边或弧相关的数叫做<strong>权</strong>,这种带权的图通常称为<strong>网</strong>.</p>
+<blockquote>
+<p>一般来说，这个“权”可以代表某些附加的条件，比如说，可以用来代表这条边连接的两个节点间运动的耗时</p>
+</blockquote>
+<h3 id="_4">子图</h3>
+<p>假设有两个图G=(V,E)和G'=(V' ,E'),如果V'是V的子集，且E'是E的子集,称G'是G的子图</p>
+<p>E 中没有的元素（不存在的关系）不能在E'中出现。比如在下边这个例子里头，如果E'里出现了 &lt;2, 1&gt; （现在已经出现的是 &lt;1,2&gt;），那么G‘就不是G的子图了。</p>
+<p><img alt="子图的定义" src="https://telegraph-image-5ms.pages.dev/file/9da28c49bc57a52c53ca5.png" /></p>
+<h3 id="_5">顶点相关概念</h3>
+<p>对于<strong>无向图G</strong>，如果边(v,u)属于E，则称顶点v和u互为<strong>邻接点(adjacent)</strong>,并且称边(v,u)与顶点和u相关联(incident)</p>
+<blockquote>
+<p>顶点v的度(degree)是和v相关联的边的个数</p>
+</blockquote>
+<p>对于<strong>有向图G</strong>，如果弧<v,u>属于E，则称顶点v邻接到(to)顶点u，顶点u邻接自(from)顶点v，并且称弧<v,u>与顶点v、u相关联</p>
+<blockquote>
+<p>以顶点v为结尾的弧的数目称为v的入度(indegree)</p>
+<p>以顶点v为起点的弧的数目称为v的出度(outdegree)</p>
+<p>顶点v的度=顶点v的入度+顶点v的出度</p>
+</blockquote>
+<h3 id="_6">路径</h3>
+<p>在G=(V，E)中，当从v到u存在如下的边或弧时,我们称这是v到u的一条路径，该路径的长度则为这些边或弧的个数</p>
+<p>当G是无向图时，边是:  $(v,v_1),(v_1,v_2),...,(v_n,u)$</p>
+<p>当G是有向图时，弧是:   $<v,v_1>,<v_1,v_2>,...,<v_n,u>$</p>
+<p>可以看出，由于图的节点之间没有层次关系，它的“路径”定义不像二叉树一样有着层次上的要求。</p>
+<p>当在一条路径中出现的顶点不重复出现时则称该路径为<strong>简单路径(simple path)</strong></p>
+<p>如果一条路径最开始的顶点和结束顶点相同，那么这个路径叫做<strong>环</strong>（也可以叫做<strong>回路</strong>）。</p>
+<h3 id="_7">图的连通</h3>
+<p>在一个图G中，如果从顶点v到顶点u有路径，则称v和u是连通的</p>
+<p>如果G是<strong>无向图</strong>。那么当G中的任意两个顶点 v<sub>i</sub> 和 v<sub>j</sub>，都有 v<sub>i</sub> 和 v<sub>j</sub> 是连通的，则称G是<strong>连通图</strong></p>
+<p>当无向图G不是一个连通图时，那么该无向图的<strong>极大连通子图</strong>则称为连通分量</p>
+<blockquote>
+<p>极大的：即每个连通子图里头的节点数量必须做到最大。比如，下面的图里，6，7，8，10是连通子图，但不是极大连通子图。6，7，8，10，9构成的图才是极大的。</p>
+</blockquote>
+<p><img alt="极大连通子图举例" src="https://telegraph-image-5ms.pages.dev/file/1dfb59d28314462be302c.png" /></p>
+<p>如果G是有向图，对于每一对顶点 v<sub>i</sub> 和 v<sub>j</sub>，都有从   v<sub>i</sub> 到 v<sub>j</sub> 和 v<sub>j</sub> 到 v<sub>i</sub> 的路径，则称该G是<strong>强连通图</strong></p>
+<p>如果G不是强连通图，但是将G中的弧想象为边时能成为一个强连通图时，我们称这个有向图G为<strong>弱连通</strong></p>
+<p>有向图中的<strong>极大强连通子图称为有向图的强连通分量</strong></p>
+<p><img alt="强连通图与弱连通图" src="https://telegraph-image-5ms.pages.dev/file/4bb685cbdf4be07c1bcdc.png" /></p>
+<p>一个连通图不是强连通的就是弱连通的。因为连通图的定义就是任意两个节点i, j之间至少有一个方向的路径。</p>
+<p>如果图G中不存在环，那么称G为<strong>无环图(acycle)</strong></p>
+<p>一个无环图如果既是无向图也是连通图，则该图称为<strong>自由树(free tree)</strong>。显然，自由树要满足三个条件：无环；是无向图；是连通图。比如，本部分最后讲到的最小支撑树就是一种自由树。</p>
+<blockquote>
+<p>自由树是图、树两种数据结构之间的桥梁。</p>
+</blockquote>
+<p>一个无环图如果是有向图，则简称为<strong>DAG(directed acyclic graph)</strong></p>
+<h2 id="adt">图的 ADT</h2>
+<p>注：图的 ADT 只保证了你可以随心所欲的操作一个图（添加边，节点，删除边，添加权重等），不包含图的经典算法的实现。</p>
+<blockquote>
+<p>这就是 ADT 的意义：只规定一个数据结构上可以进行的操作。具体你想用这些操作实现什么算法，就不是 ADT 关心的了。</p>
+</blockquote>
+<p>由于图的定义只包含一个顶点集合与一个边集合，图的 ADT 基本也只包含对顶点集合，边集合进行操作的方法。</p>
+<pre class="mermaid"><code>classDiagram
+class Graph{
+    +n() -&gt; int
+    +e() -&gt; int
+    +first(int v) -&gt; Edge
+    +next(Edge w) -&gt; Edge
+    +isEdge(Edge w) -&gt; boolean
+    +isEdge(int i, int j) -&gt; boolean
+    +v1(Edge w) -&gt; int
+    +v2(Edge w) -&gt; int
+    +setEdge(int i, int j, int weight)
+    +setEdge(Edge w, int weight)
+    +delEdge(Edge w)
+    +delEdge(int i, int j)
+    +weight(int i, int j) -&gt; int
+    +weight(Edge w) -&gt; int
+    +setMark(int v, int val)
+    +getMark(int v) -&gt; int
+}</code></pre>
+<p>注：</p>
+<ul>
+<li><code>isEdge</code> 方法判断两个顶点之间是否有边连接</li>
+<li><code>setEdge</code> 方法在两个顶点之间添加一条边。</li>
+<li><code>first</code> 和 <code>next</code> 方法是配合着使用的：</li>
+</ul>
+<h3 id="_8">图的两种实现方法</h3>
+<p><strong>相邻矩阵实现</strong>（二维数组）</p>
+<p>这种存储方法类似于离散数学里头「关系」的「矩阵表示法」。简而言之，它是一个二维数组；其第 a[i][j] 位置的元素表示了矩阵的第i行第j列的元素。这个元素如果是1，代表了 <i, j> 是一条弧；是0，代表<i, j> 不是一条弧。</p>
+<p>矩阵的第i行上所有为1的元素代表了元素i所能 <strong>连接到</strong> 的元素</p>
+<p>第i列上所有为1的元素代表元素j所能 <strong>连接自</strong> 的顶点</p>
+<p><img alt="图的相邻矩阵实现" src="https://telegraph-image-5ms.pages.dev/file/c2a8b6afd583522bd8eae.png" /></p>
+<p>无向图的矩阵表示满足对称性。</p>
+<blockquote>
+<p>这是因为它的相邻矩阵满足了对称性的定义：对于任何两个元素i, j，如果<i, j> 属于 E（是一条弧），则 <j, i> 属于E（是一条弧）</p>
+</blockquote>
+<p>有向图的矩阵表示一般是不对称的。不过其实无向图也满足有向图的定义，如果你据此说有向图的矩阵表示也可以对称，那也行吧。</p>
+<p>表示一张网（有权重的图）的时候，相邻矩阵里的元素取值发生了变化：</p>
+<p>如果 <i, j> 是一条弧且权重为p，那么矩阵第i行，第j列的元素为p</p>
+<p>如果 <i, j> 不是一条弧，那么矩阵第i行，第j列的元素取无穷（正无穷或者负无穷都行，在java里就是 1.0/0.0 得到的值）</p>
+<blockquote>
+<p>不存在时取无穷是因为权重是可能为0的。</p>
+</blockquote>
+<p><strong>某些操作的时间复杂度分析</strong></p>
+<ul>
+<li>判断一条边是否存在: O(1)。</li>
+</ul>
+<p>判断<i,j>是否存在，查查a[i][j]是0还是1就行了。只需要查询一个位置</p>
+<ul>
+<li>判断某个顶点能到达的<strong>相邻</strong>顶点：O(|V|)</li>
+</ul>
+<blockquote>
+<p>|V| 代表图里头顶点的个数</p>
+</blockquote>
+<p>判断这个顶点所在行有多少个1就行了（除自己外），需要查询一行的所有元素</p>
+<ul>
+<li>寻找所有的边：O(|V|<sup>2</sup>)</li>
+</ul>
+<p>需要检查矩阵的每一个元素，看看有多少个1（对于无向图，1的个数得除2）。矩阵大小是 |V| * |V|。</p>
+<ul>
+<li>增加或者删除一条边：O(1)</li>
+</ul>
+<p>如果要删除元素 <i, j>，把矩阵(i, j)（i行j列）的位置设成0或者无穷（取决于有没有权重）就完事了。</p>
+<p>相邻矩阵实现适合<strong>稠密图</strong>。（如果你不记得什么是稠密图，简单的判断方法就是看 |E| &gt; |V|log|V| 不）</p>
+<p><strong>邻接表实现</strong>（链表构成的数组）</p>
+<p>它是一个数组，数组里的每个元素都是一个链表。数组的第i个元素代表了第i个顶点。</p>
+<p>第i个节点的链表中存储了所有和这个节点邻接的节点。这些邻接顶点在链表中的存储顺序是无所谓的，因为图对于边的顺序没有要求。举个例子，下图中数组的0个元素所在的链表中包含元素2，3；按照3，2的顺序存也无所谓。</p>
+<p>一般为了规范，邻接顶点按照编号大小存储，这其实是不必要的。</p>
+<p><img alt="图的邻接表存储方式" src="https://telegraph-image-5ms.pages.dev/file/71d7cf597c1403bb597d9.png" /></p>
+<p>存放网的时候，链表的每个元素会增加一个内容：此元素和上一元素间的边的权值。</p>
+<p><strong>某些操作的时间复杂度分析</strong></p>
+<ul>
+<li>判断一条边<i, j>是否存在：O(|V|)</li>
+</ul>
+<p>这是因为，判断时，我们需要遍历以第i个元素为开头的链表，而这个链表最长会有 |V| 这么长（在i和所有元素都相连时）</p>
+<ul>
+<li>得到一个点所能<strong>达到</strong>的所有相邻顶点：O(|V|)</li>
+</ul>
+<p>同样遍历一次链表即可</p>
+<ul>
+<li>得到全部边：O(|E|)</li>
+</ul>
+<p>遍历所有的链表。全部的链表节点数有 |E| 个，因为总共只有|E|个关系</p>
+<ul>
+<li>添加/删除一条边：O(|V|)</li>
+</ul>
+<p>如果你要保证链表按照各节点编号排序的话，就需要O(|V|)了。不排序的话，O(1)就行</p>
+<p>邻接表适合表示<strong>稀疏图</strong>。</p>
+<p>相邻矩阵大约是顺序存储方法；邻接表大概算是链式存储。</p>
+<h3 id="_9">图的相邻矩阵实现</h3>
+<pre class="mermaid"><code>classDiagram
+class Graphm{
+    +next(Edge e) -&gt; Edge
+    +first(int n) -&gt; Edge
+}</code></pre>
+<blockquote>
+<p><code>Graphm</code> 和 <code>Edgem</code> 后边那个'm'代表 matrix，提示你这个类是使用<em>相邻矩阵</em>实现的图。 </p>
+</blockquote>
+<p><code>first</code> 方法：找到编号为n的节点的第一条边</p>
+<p><code>next</code>方法：找到边e的下一条边。具体哪条边是下一条边，取决于具体的存储结构；但不管怎么说，这个方法都不会重复的返回一条边。</p>
+<blockquote>
+<p>一般来说，next方法返回边的顺序按照边尾的编号大小</p>
+</blockquote>
+<p>代码 </p>
+<div class="highlight"><pre><span></span><code><span class="n">Edgem</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">graph</span><span class="p">.</span><span class="na">first</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">){</span>
+<span class="w">    </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">graph</span><span class="p">.</span><span class="na">next</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>能够遍历所有n可以连接<strong>到</strong>的节点，且不会重复的得到某条边。</p>
+<p>e 是一个<strong>从n到某个节点的弧</strong>，一定是<strong>以n节点为起始的</strong>。</p>
+<p><code>first</code> 的实现：</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">Edgem</span><span class="w"> </span><span class="nf">first</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="p">){</span>
+<span class="w">    </span><span class="k">assert</span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">&gt;=</span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">Mark</span><span class="p">.</span><span class="na">length</span><span class="p">):</span><span class="w"> </span><span class="s">&quot;Invaild input&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">Mark</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">matrix</span><span class="o">[</span><span class="n">v</span><span class="o">][</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">){</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Edgem</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><code>next</code> 的实现：</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">Edgem</span><span class="w"> </span><span class="nf">next</span><span class="p">(</span><span class="n">Edgem</span><span class="w"> </span><span class="n">e</span><span class="p">){</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="n">e</span><span class="p">.</span><span class="na">v2</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">Mark</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">matrix</span><span class="o">[</span><span class="n">v1</span><span class="o">][</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">){</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Edgem</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>整体的代码：</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">GraphM</span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">double</span><span class="o">[][]</span><span class="w"> </span><span class="n">matrix</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">mark</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">edgeNum</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">GraphM</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">){</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">matrix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">double</span><span class="o">[</span><span class="n">size</span><span class="o">][</span><span class="n">size</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">size</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">size</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">){</span>
+<span class="w">                </span><span class="n">matrix</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Double</span><span class="p">.</span><span class="na">POSITIVE_INFINITY</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">mark</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="n">size</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">edgeNum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">n</span><span class="p">(){</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">mark</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">e</span><span class="p">(){</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">edgeNum</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Edge</span><span class="w"> </span><span class="nf">first</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="p">){</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">();</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">matrix</span><span class="o">[</span><span class="n">v</span><span class="o">][</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">Double</span><span class="p">.</span><span class="na">POSITIVE_INFINITY</span><span class="p">){</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">EdgeM</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Edge</span><span class="w"> </span><span class="nf">next</span><span class="p">(</span><span class="n">Edge</span><span class="w"> </span><span class="n">w</span><span class="p">){</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">w</span><span class="o">==</span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="n">w</span><span class="p">.</span><span class="na">v2</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">();</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">matrix</span><span class="o">[</span><span class="n">w</span><span class="p">.</span><span class="na">v1</span><span class="p">()</span><span class="o">][</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">Double</span><span class="p">.</span><span class="na">POSITIVE_INFINITY</span><span class="p">){</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">EdgeM</span><span class="p">(</span><span class="n">w</span><span class="p">.</span><span class="na">v1</span><span class="p">(),</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isEdge</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">n</span><span class="p">()</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">n</span><span class="p">())</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">matrix</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">Double</span><span class="p">.</span><span class="na">POSITIVE_INFINITY</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isEdge</span><span class="p">(</span><span class="n">Edge</span><span class="w"> </span><span class="n">w</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">w</span><span class="o">==</span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">isEdge</span><span class="p">(</span><span class="n">w</span><span class="p">.</span><span class="na">v1</span><span class="p">(),</span><span class="w"> </span><span class="n">w</span><span class="p">.</span><span class="na">v2</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">v1</span><span class="p">(</span><span class="n">Edge</span><span class="w"> </span><span class="n">w</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">w</span><span class="p">.</span><span class="na">v1</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">v2</span><span class="p">(</span><span class="n">Edge</span><span class="w"> </span><span class="n">w</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">w</span><span class="p">.</span><span class="na">v2</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setEdge</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">v1</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">v2</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">weight</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">matrix</span><span class="o">[</span><span class="n">v1</span><span class="o">][</span><span class="n">v2</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">weight</span><span class="p">;</span>
+<span class="w">        </span><span class="n">edgeNum</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setEdge</span><span class="p">(</span><span class="n">Edge</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">weight</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">w</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="n">setEdge</span><span class="p">(</span><span class="n">w</span><span class="p">.</span><span class="na">v1</span><span class="p">(),</span><span class="w"> </span><span class="n">w</span><span class="p">.</span><span class="na">v2</span><span class="p">(),</span><span class="w"> </span><span class="n">weight</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">delEdge</span><span class="p">(</span><span class="n">Edge</span><span class="w"> </span><span class="n">w</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">w</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+<span class="w">        </span><span class="n">matrix</span><span class="o">[</span><span class="n">w</span><span class="p">.</span><span class="na">v1</span><span class="p">()</span><span class="o">][</span><span class="n">w</span><span class="p">.</span><span class="na">v2</span><span class="p">()</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Double</span><span class="p">.</span><span class="na">POSITIVE_INFINITY</span><span class="p">;</span>
+<span class="w">        </span><span class="n">edgeNum</span><span class="o">--</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">delEdge</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">v1</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">v2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">matrix</span><span class="o">[</span><span class="n">v1</span><span class="o">][</span><span class="n">v2</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Double</span><span class="p">.</span><span class="na">POSITIVE_INFINITY</span><span class="p">;</span>
+<span class="w">        </span><span class="n">edgeNum</span><span class="o">--</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">weight</span><span class="p">(</span><span class="n">Edge</span><span class="w"> </span><span class="n">w</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="n">matrix</span><span class="o">[</span><span class="n">w</span><span class="p">.</span><span class="na">v1</span><span class="p">()</span><span class="o">][</span><span class="n">w</span><span class="p">.</span><span class="na">v2</span><span class="p">()</span><span class="o">]</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">weight</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="n">matrix</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getMark</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">mark</span><span class="o">[</span><span class="n">v</span><span class="o">]</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setMark</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">mark</span><span class="o">[</span><span class="n">v</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">val</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">(){</span>
+<span class="w">        </span><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">();</span>
+<span class="w">        </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;GraphM(&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">matrix</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">            </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;=&quot;</span><span class="p">).</span><span class="na">append</span><span class="p">(</span><span class="n">Arrays</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">matrix</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">)).</span><span class="na">append</span><span class="p">(</span><span class="sc">&#39;,&#39;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">sb</span><span class="p">.</span><span class="na">deleteCharAt</span><span class="p">(</span><span class="n">sb</span><span class="p">.</span><span class="na">length</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+<span class="w">        </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="sc">&#39;)&#39;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">sb</span><span class="p">.</span><span class="na">toString</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="_10">图的邻接表实现</h3>
+<p>下面的代码和书上的代码完全相同。具体实现当中的 <code>isEdge</code> 方法存在一个副作用：会修改链表 current 指针的位置到适合插入新元素的位置，因此在和边有关的操作之前，几乎都会调用一次 <code>isEdge</code> 方法，以定位 current 指针到合适的位置。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">GraphL</span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">GraphList</span><span class="o">[]</span><span class="w"> </span><span class="n">vertex</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">numEdge</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">mark</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">GraphL</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">){</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">vertex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">GraphList</span><span class="o">[</span><span class="n">size</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">size</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">            </span><span class="n">vertex</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">GraphList</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">numEdge</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">mark</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="n">size</span><span class="o">]</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">n</span><span class="p">(){</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">mark</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">e</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">numEdge</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Edge</span><span class="w"> </span><span class="nf">first</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">GraphList</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vertex</span><span class="o">[</span><span class="n">v</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="n">list</span><span class="p">.</span><span class="na">setFirst</span><span class="p">();</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="na">currValue</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">EdgeL</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">currValue</span><span class="p">()</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">currLink</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isEdge</span><span class="p">(</span><span class="n">Edge</span><span class="w"> </span><span class="n">w</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">w</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">        </span><span class="n">GraphList</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vertex</span><span class="o">[</span><span class="n">w</span><span class="p">.</span><span class="na">v1</span><span class="p">()</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="n">list</span><span class="p">.</span><span class="na">setCurrLink</span><span class="p">(((</span><span class="n">EdgeL</span><span class="p">)</span><span class="w"> </span><span class="n">w</span><span class="p">).</span><span class="na">getSelf</span><span class="p">());</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">list</span><span class="p">.</span><span class="na">isInList</span><span class="p">())</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">currValue</span><span class="p">()</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">w</span><span class="p">.</span><span class="na">v2</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isEdge</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">GraphList</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vertex</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">temp</span><span class="p">.</span><span class="na">setFirst</span><span class="p">();</span><span class="w"> </span><span class="n">temp</span><span class="p">.</span><span class="na">currValue</span><span class="p">()</span><span class="o">!=</span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">temp</span><span class="p">.</span><span class="na">currValue</span><span class="p">()</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">j</span><span class="p">;</span><span class="n">temp</span><span class="p">.</span><span class="na">next</span><span class="p">()){</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">temp</span><span class="p">.</span><span class="na">currValue</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">temp</span><span class="p">.</span><span class="na">currValue</span><span class="p">()</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">j</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">v1</span><span class="p">(</span><span class="n">Edge</span><span class="w"> </span><span class="n">w</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">w</span><span class="p">.</span><span class="na">v1</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">(){</span>
+<span class="w">        </span><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">();</span>
+<span class="w">        </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;GraphL(&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">mark</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">            </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;: &quot;</span><span class="p">).</span><span class="na">append</span><span class="p">(</span><span class="n">vertex</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;)&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">sb</span><span class="p">.</span><span class="na">toString</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">v2</span><span class="p">(</span><span class="n">Edge</span><span class="w"> </span><span class="n">w</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">w</span><span class="p">.</span><span class="na">v2</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Edge</span><span class="w"> </span><span class="nf">next</span><span class="p">(</span><span class="n">Edge</span><span class="w"> </span><span class="n">w</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">w</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">        </span><span class="n">GraphList</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vertex</span><span class="o">[</span><span class="n">w</span><span class="p">.</span><span class="na">v1</span><span class="p">()</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="n">list</span><span class="p">.</span><span class="na">setCurrLink</span><span class="p">(((</span><span class="n">EdgeL</span><span class="p">)</span><span class="w"> </span><span class="n">w</span><span class="p">).</span><span class="na">getSelf</span><span class="p">());</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">list</span><span class="p">.</span><span class="na">isInList</span><span class="p">())</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">        </span><span class="n">list</span><span class="p">.</span><span class="na">next</span><span class="p">();</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="na">currValue</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">EdgeL</span><span class="p">(</span><span class="n">w</span><span class="p">.</span><span class="na">v1</span><span class="p">(),</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">currValue</span><span class="p">()</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">currLink</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setEdge</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">v1</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">v2</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">weight</span><span class="p">){</span>
+<span class="w">        </span><span class="n">GraphList</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vertex</span><span class="o">[</span><span class="n">v1</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Integer</span><span class="o">[]</span><span class="w"> </span><span class="n">new_one</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Integer</span><span class="o">[]</span><span class="p">{</span><span class="n">v2</span><span class="p">,</span><span class="w"> </span><span class="n">weight</span><span class="p">};</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isEdge</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span><span class="w"> </span><span class="n">v2</span><span class="p">))</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">setValue</span><span class="p">(</span><span class="n">new_one</span><span class="p">);</span>
+<span class="w">        </span><span class="k">else</span><span class="p">{</span>
+<span class="w">            </span><span class="n">list</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="n">new_one</span><span class="p">);</span>
+<span class="w">            </span><span class="n">numEdge</span><span class="o">++</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setEdge</span><span class="p">(</span><span class="n">Edge</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">weight</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">w</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+<span class="w">        </span><span class="n">setEdge</span><span class="p">(</span><span class="n">w</span><span class="p">.</span><span class="na">v1</span><span class="p">(),</span><span class="w"> </span><span class="n">w</span><span class="p">.</span><span class="na">v2</span><span class="p">(),</span><span class="w"> </span><span class="n">weight</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">delEdge</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">v1</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">v2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">GraphList</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vertex</span><span class="o">[</span><span class="n">v1</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isEdge</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span><span class="w"> </span><span class="n">v2</span><span class="p">)){</span>
+<span class="w">            </span><span class="n">list</span><span class="p">.</span><span class="na">remove</span><span class="p">();</span>
+<span class="w">            </span><span class="n">numEdge</span><span class="o">--</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">delEdge</span><span class="p">(</span><span class="n">Edge</span><span class="w"> </span><span class="n">w</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">w</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">){</span>
+<span class="w">            </span><span class="n">delEdge</span><span class="p">(</span><span class="n">w</span><span class="p">.</span><span class="na">v1</span><span class="p">(),</span><span class="w"> </span><span class="n">w</span><span class="p">.</span><span class="na">v2</span><span class="p">());</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">weight</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isEdge</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">))</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">vertex</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="na">currValue</span><span class="p">()</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">MAX_VALUE</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">weight</span><span class="p">(</span><span class="n">Edge</span><span class="w"> </span><span class="n">w</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isEdge</span><span class="p">(</span><span class="n">w</span><span class="p">))</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">vertex</span><span class="o">[</span><span class="n">w</span><span class="p">.</span><span class="na">v1</span><span class="p">()</span><span class="o">]</span><span class="p">.</span><span class="na">currValue</span><span class="p">()</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">MAX_VALUE</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getMark</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">mark</span><span class="o">[</span><span class="n">v</span><span class="o">]</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setMark</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">mark</span><span class="o">[</span><span class="n">v</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">val</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="_11">图的遍历</h2>
+<p>定义：基于图的拓扑结构，以特定的顺序依次访问图中的各个顶点。</p>
+<p>也需要满足“不重不漏”：不要访问一个节点多次；不要漏下任何一个节点不访问</p>
+<p>由于图的每个节点都是“平等的”，因此图没有一个方便的，从它开始就一定能达到所有节点的顶点。</p>
+<p>图的遍历可能遇到的问题：</p>
+<ul>
+<li>从某个顶点出发，可能无法到达所有顶点（树的遍历就肯定没这个问题）</li>
+</ul>
+<p>比如，非连通图里头，从任何一个顶点开始，都无法访问所有其他顶点。</p>
+<ul>
+<li>如果图中有环，可能会陷入死循环</li>
+</ul>
+<p>解决方法：<strong>为遍历过的节点设置一个标志位</strong>。</p>
+<ul>
+<li>当多次来到此点时，通过读取标识位就知道“我来过这里”而不会继续循环了。解决了死循环的问题</li>
+<li>一次试探结束之后，如果还有顶点没有被访问，就知道这张图是非连通图了。解决了非连通图的遍历问题</li>
+</ul>
+<p>在实际选择遍历的起始点时，大概是这样：</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 遍历所有V中节点（尝试用每个节点作为起始点遍历一次）</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">v</span><span class="o">&lt;</span><span class="n">G</span><span class="p">.</span><span class="na">n</span><span class="p">();</span><span class="n">v</span><span class="o">++</span><span class="p">){</span>
+<span class="w">    </span><span class="c1">// 如果这个点没被访问，说明图可能是非连通图，尝试以它为起始点遍历一次</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">G</span><span class="p">.</span><span class="na">getMark</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">UNVISISTED</span><span class="p">){</span>
+<span class="w">        </span><span class="n">doTraverse</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// 如果这个点被访问了，那就不用再拿它当起始点遍历了，不然就重复了。</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>一定不要只执行一次遍历</strong>。<strong>小心非连通图</strong>。</p>
+<h3 id="dfs">深度优先搜索（DFS）</h3>
+<ul>
+<li>
+<p>类似树的<em>先序遍历</em></p>
+</li>
+<li>
+<p>DFS是对图的很多问题处理的基础</p>
+</li>
+</ul>
+<p>给出指定两个顶点之间的路径</p>
+<p>判断图是否有回路</p>
+<p>判断图是否是连通图，如果不连通，则有几个连通分量</p>
+<p>过程：</p>
+<ol>
+<li>
+<p>假设初始状态是图中所有顶点未曾被访问，则深度优先搜索可以从图中某个顶点v出发</p>
+</li>
+<li>
+<p>访问这个v顶点，然后依次从v的未被访问的<strong>邻接点出发深度优先遍历图</strong>,直至图中所有和v有路径相连的顶点都被访问到</p>
+</li>
+</ol>
+<p>这个步骤当中又提到了深度优先遍历。因此，DFS的定义是递归的。</p>
+<p>实际上，假如我在遍历节点6，其连接了节点4，5，7，则深度优先遍历6相当于做三个任务：</p>
+<p>深度优先遍历4；深度优先遍历5；深度优先遍历7。</p>
+<p>注意：只访问<strong>还没被访问的邻接点</strong>。比如访问4时访问到了5的话（可能是因为存在弧&lt;4,5&gt;），那么之后就不需要再次遍历节点5了。</p>
+<ol>
+<li>如果此时图中尚有顶点未被访问，则另选图中一个未曾被访向的顶点作起始点，重复上述过程,直至图中所有顶点都被访问到为止。</li>
+</ol>
+<p>这个步骤对应了上边那段代码。具体实现上，就是把遍历图的方法包裹在一个循环里。</p>
+<p>举例：对这张图做深度优先遍历：</p>
+<p><img alt="深度优先遍历举例" src="https://telegraph-image-5ms.pages.dev/file/fcd9111e4ab2c787b9116.png" /></p>
+<p>在进行遍历之前，我们需要一些辅助数据：</p>
+<ul>
+<li>这张图的邻接表结构</li>
+<li>一个称为“Pi数组”的数组，长度和图的节点一样多。它用来记录哪个节点触发了哪个节点的深度优先遍历。</li>
+<li>一个标识位数组，长度也和图的节点一样多。它用来记录图中的节点有没有被访问过</li>
+</ul>
+<p>Pi数组和标识位数组是这样：</p>
+<table>
+<thead>
+<tr>
+<th>索引</th>
+<th>Pi数组</th>
+<th>标识位数组</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>-1</td>
+<td>F</td>
+</tr>
+<tr>
+<td>1</td>
+<td>-1</td>
+<td>F</td>
+</tr>
+<tr>
+<td>2</td>
+<td>-1</td>
+<td>F</td>
+</tr>
+<tr>
+<td>3</td>
+<td>-1</td>
+<td>F</td>
+</tr>
+<tr>
+<td>4</td>
+<td>-1</td>
+<td>F</td>
+</tr>
+<tr>
+<td>5</td>
+<td>-1</td>
+<td>F</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="DFS的过程" src="https://telegraph-image-5ms.pages.dev/file/7a5c92fa341f9dfb08480.png" /></p>
+<p>说明：</p>
+<p>红线代表第一次遍历到某个节点的路径；返回路径代表每个节点DFS完毕后，如何返回上一次遍历。回边的概念如下：</p>
+<p>满足以下两个条件的边称为回边：</p>
+<ol>
+<li>此边的第二个节点在第一个节点被访问前已经在同一次深度优先遍历里被访问了</li>
+</ol>
+<blockquote>
+<p>限制“同一次”是为了排除非连通图的干扰</p>
+</blockquote>
+<ol>
+<li>此边第二个节点在调用链上（遍历顺序上）至少是第一个节点的爷爷辈及以上</li>
+</ol>
+<blockquote>
+<p>这个条件是为了排除D调用F时会看到的<F,D>这种没用的“回边”</p>
+</blockquote>
+<p>存在一条回边，就说明图中存在一个<strong>环</strong>。</p>
+<p>示例：首先，我们看到了A顶点，它和C、E顶点连接。因此，遍历A的任务会被拆分为遍历C，遍历E两部分。</p>
+<pre class="mermaid"><code>graph TB
+A["DFS(A)"]
+C["DFS(C)"]
+E["DFS(E)"]
+A--&gt;C
+A--&gt;E</code></pre>
+<p>Pi 数组：</p>
+<p>在每次通过边<i, j> 第一次访问到节点j时，把这个数组的第j个元素的值设为i。</p>
+<p>比如在上面的例子里，C节点第一次被访问是通过边<A,C>，因此把数组的2（C）位置的值从初始 -1设为0（A）。</p>
+<p>在深度优先遍历结束之后，Pi数组存储的就是一棵“深度优先自由树”。通过Pi数组，我们就可以看到从一个顶点出发，可以到达哪些顶点；也可以看到一个顶点如何从开头被访问。</p>
+<h3 id="dfs_1">DFS 的时间复杂度分析</h3>
+<p>图中的每一次节点都会被访问两次：</p>
+<ul>
+<li>一次在开头，把所有节点都标记为 UNVISITED</li>
+<li>一次在遍历过程中，把找到的节点标记为 VISITED</li>
+</ul>
+<p>图中的每一条边都会被访问一次。</p>
+<p>因此，时间复杂度为：O(|V| + |E|)</p>
+<p>在两种图的表示方法下，由于访问边、节点的速度不一样，时间复杂度不同</p>
+<p>邻接表表示：O(|V| + |E|)</p>
+<p>相邻矩阵表示：O(|V|<sup>2</sup>)（因为相邻矩阵查找所有边需要|V|<sup>2</sup>的时间）</p>
+<h3 id="dfs_2">DFS 的具体实现</h3>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DFS</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">PI</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">Graph</span><span class="w"> </span><span class="n">graph</span><span class="p">){</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">graph</span><span class="p">.</span><span class="na">n</span><span class="p">();</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">            </span><span class="n">graph</span><span class="p">.</span><span class="na">setMark</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">PI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="n">graph</span><span class="p">.</span><span class="na">n</span><span class="p">()</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Arrays</span><span class="p">.</span><span class="na">fill</span><span class="p">(</span><span class="n">PI</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="w"> </span><span class="n">graph</span><span class="p">.</span><span class="na">n</span><span class="p">();</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">            </span><span class="c1">// 尝试从每个未被访问的顶点出发进行深度优先遍历</span>
+<span class="w">            </span><span class="c1">// 这是为了解决非连通图无法从一个节点开始遍历完全图的问题</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">graph</span><span class="p">.</span><span class="na">getMark</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">){</span>
+<span class="w">                </span><span class="n">dfs</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;DFS from &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; finished.&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">Graph</span><span class="w"> </span><span class="n">graph</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="p">){</span>
+<span class="w">        </span><span class="n">visit</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">);</span>
+<span class="w">        </span><span class="n">graph</span><span class="p">.</span><span class="na">setMark</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Edge</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">graph</span><span class="p">.</span><span class="na">first</span><span class="p">(</span><span class="n">v</span><span class="p">);</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">graph</span><span class="p">.</span><span class="na">next</span><span class="p">(</span><span class="n">e</span><span class="p">)){</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">graph</span><span class="p">.</span><span class="na">getMark</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">v2</span><span class="p">())</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">PI</span><span class="o">[</span><span class="n">e</span><span class="p">.</span><span class="na">v2</span><span class="p">()</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="p">;</span>
+<span class="w">                </span><span class="n">dfs</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">v2</span><span class="p">());</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">visit</span><span class="p">(</span><span class="n">Graph</span><span class="w"> </span><span class="n">graph</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="p">){</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Visiting &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="bfs">广度优先遍历（BFS）</h3>
+<p>广度优先遍历类似于树的<strong>层序遍历</strong>。它也可以用于很多图的相关算法中：</p>
+<ul>
+<li>
+<p>最小支撑树算法</p>
+</li>
+<li>
+<p>求两个顶点的“最短”路径</p>
+</li>
+</ul>
+<p>这个最短指的是经过的边数最少。</p>
+<p>广度优先遍历得到的图的信息一般比深度优先遍历要少。</p>
+<p>过程：</p>
+<p>假设从图中某个顶点v出发，在访问了v之后：</p>
+<ul>
+<li>依次<strong>直接</strong>访问v的各个<strong>没被访问过的</strong>的邻接点</li>
+</ul>
+<p>这和深度优先遍历不同。深度优先遍历可能在看到节点时立刻访问，也可能等到对某节点的遍历结束后才访问此节点。这两种顺序对应了树的先序和后续遍历。</p>
+<ul>
+<li>保证先被访问的顶点的邻接点“要先于”后被访问的顶点的邻接点的访问，直至图中所有已被访问的顶点的邻接点都被访问到</li>
+</ul>
+<p>这一点可以通过“先到先出”的队列来保障。</p>
+<p>若此时图中还有未被访问的顶点，则任选其中之一作为起点，重新开始上述过程，直至图中所有顶点都被访问到</p>
+<p>在执行广度优先遍历的时候，我们仍然需要Pi数组，标识位数组两个辅助内容，且他们的定义和DFS里的完全一样</p>
+<p>广度优先遍历借用队列，而不是递归执行。</p>
+<p><img alt="广度优先遍历的过程" src="https://telegraph-image-5ms.pages.dev/file/936423cded01a1aa3ba50.png" /></p>
+<p>在完成广度优先遍历后，也可以通过Pi数组得到一棵自由树（如果是非连通图，得到的就是森林）。相比于DFS的自由树比较“瘦高”，BFS的树非常“矮宽”。这棵树中包含了如何从一个顶点经过最少的边数到达另一个顶点。</p>
+<p>实际上，广度优先遍历的队列入队顺序是有特征的：<strong>距离初始节点边数越小的节点越先入队</strong>。利用这个特性，可以实现许多不同的算法。</p>
+<p>对队列中节点的访问其实也有两个时机：在入队时访问，在出队时访问。不过，不管你选择哪种，最后的访问顺序其实是一样的，这是因为队列在入队顺序确定时，出队顺序就直接确定了。</p>
+<p>广度优先遍历无法探知图中环的信息。</p>
+<h3 id="bfs_1">BFS 的时间复杂度</h3>
+<p>图中的每一次节点都会被访问两次：</p>
+<ul>
+<li>一次在开头，把所有节点都标记为 UNVISITED</li>
+<li>一次在遍历过程中，把找到的节点标记为 VISITED</li>
+</ul>
+<p>图中的每一条边都会被访问一次。</p>
+<p>因此，时间复杂度为：O(|V| + |E|)</p>
+<p>在两种图的表示方法下，由于访问边、节点的速度不一样，时间复杂度不同</p>
+<p>邻接表表示：O(|V| + |E|)</p>
+<p>相邻矩阵表示：O(|V|<sup>2</sup>)（因为相邻矩阵查找所有边需要|V|<sup>2</sup>的时间）</p>
+<p>（其实时间复杂度和DFS一模一样）</p>
+<h3 id="bfs_2">BFS 的具体实现</h3>
+<p><code>LQueue</code> 是在栈和队列部分提到的一个链式队列。</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Arrays</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BFS</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">PI</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">bfs</span><span class="p">(</span><span class="n">Graph</span><span class="w"> </span><span class="n">g</span><span class="p">){</span>
+<span class="w">        </span><span class="n">PI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="n">g</span><span class="p">.</span><span class="na">n</span><span class="p">()</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Arrays</span><span class="p">.</span><span class="na">fill</span><span class="p">(</span><span class="n">PI</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">g</span><span class="p">.</span><span class="na">n</span><span class="p">();</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">            </span><span class="n">g</span><span class="p">.</span><span class="na">setMark</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">g</span><span class="p">.</span><span class="na">n</span><span class="p">();</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">g</span><span class="p">.</span><span class="na">getMark</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">){</span>
+<span class="w">                </span><span class="n">bfs</span><span class="p">(</span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Finish BFS on &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">bfs</span><span class="p">(</span><span class="n">Graph</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="p">){</span>
+<span class="w">        </span><span class="n">LQueue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LQueue</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="n">q</span><span class="p">.</span><span class="na">enqueue</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+<span class="w">        </span><span class="n">g</span><span class="p">.</span><span class="na">setMark</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">q</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">()){</span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">vertex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="na">dequeue</span><span class="p">();</span>
+<span class="w">            </span><span class="n">visit</span><span class="p">(</span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">vertex</span><span class="p">);</span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Edge</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">g</span><span class="p">.</span><span class="na">first</span><span class="p">(</span><span class="n">vertex</span><span class="p">);</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">g</span><span class="p">.</span><span class="na">next</span><span class="p">(</span><span class="n">e</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">g</span><span class="p">.</span><span class="na">getMark</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">v2</span><span class="p">())</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">q</span><span class="p">.</span><span class="na">enqueue</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">v2</span><span class="p">());</span>
+<span class="w">                    </span><span class="n">g</span><span class="p">.</span><span class="na">setMark</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">v2</span><span class="p">(),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">                    </span><span class="n">PI</span><span class="o">[</span><span class="n">e</span><span class="p">.</span><span class="na">v2</span><span class="p">()</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vertex</span><span class="p">;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">visit</span><span class="p">(</span><span class="n">Graph</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="p">){</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Visiting &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="dfsbfs">DFS与BFS比较</h3>
+<p>在访问结点的时机方面:</p>
+<p>DFS可以在处理某个结点的所有邻接结点之前接受访问，也可以在处理完某个结点的所有邻接结点之后接受访问。这对应了树的先序遍历和后续遍历</p>
+<p>BFS则只有在结点入队时(或者出队时）接受访问。由于队列在入队顺序一致时，出队顺序一致，实际上不管在何时访问，访问顺序都不会变化。</p>
+<h2 id="_12">拓扑排序</h2>
+<h3 id="_13">如何把一个具体的问题用图表示？</h3>
+<p>一项工程往往可以分解为一些具有相对独立性的子工程，通常称这些子工程为“活动”</p>
+<blockquote>
+<p>子工程的完成意味着整个工程的完成</p>
+<p>子工程之间在进行的时间上有着一定的相互制约关系</p>
+</blockquote>
+<p>在把现实问题转换为图的时候，要记住图包含了顶点和边两部分。你需要思考，你的问题的什么内容可以被表示为顶点？什么内容可以被表示为弧？</p>
+<p>比如，在刚才这个“工程拆分成很多子工程”的例子里头，可以用顶点表示任何一个工程，弧表示这些工程之间的先后制约关系。如果把“工程”看成一个“活动”的话，这种图就叫做“活动在顶点上的网络”，简称活动顶点网络，或AOV (Activity On Vertex)网。</p>
+<p>还有一种图化方法叫做“活动在边上的网络”。这种网络中，顶点代表某种起始状态，边代表具体的活动。</p>
+<p>AOV 网例子：我们在学习课程时，有一些先后顺序的要求：比如数据结构理论上需要在离散数学、Java语言学完后再开始学习。这里，我们可以让每门课程作为顶点，他们的先修关系构成边，从而组成一个AOV网。</p>
+<h3 id="aov">AOV 网的定义</h3>
+<p>AOV网是一个<strong>有向图</strong>，该图中的<strong>顶点表示活动，图中的弧表示活动之间的优先关系</strong></p>
+<p><strong>前驱(predecessor)、后继(successor)</strong>：</p>
+<p>顶点i是顶点j的前驱当且仅当从顶点i有一条有向路径到达顶点j，顶点j也称为顶点i的后继</p>
+<blockquote>
+<p>注意这里的前驱、后继不像线性表的直接前驱，直接后继；更像是一个节点的祖先/子孙</p>
+</blockquote>
+<p>活动之间的优先关系<strong>满足传递关系</strong>、非自反关系</p>
+<blockquote>
+<p>对任意顶点i。j,k,如果i是j的前驱并且j是k的前驱，那么i一定也是k的前驱</p>
+<p>对任意顶点i，i是i的前驱永远为假（不然喜提一个死锁）</p>
+</blockquote>
+<p><strong>不允许有环出现</strong></p>
+<blockquote>
+<p>否则意味着某个活动的开始是以这个活动的结束为先决条件的，出现了“鸡生蛋还是蛋生鸡“的困难问题</p>
+</blockquote>
+<h3 id="_14">拓扑排序</h3>
+<p>拓扑排序是一个图中所有顶点的一种线性顺序。具体来说，它需要满足：</p>
+<p>对于G中的任意顶点i和j，如果i是j的前驱，那么在这个线性顺序中i一定在j之前</p>
+<p>对于同一个AOV网进行拓扑排序，可能会得到不同的结果。这和之前的排序的特性都不一样。</p>
+<p>拓扑排序的顺序和入度数有关：</p>
+<p>入度数为0的节点就是没有任何前驱的节点，根据定义，这些节点应该排在线性顺序的最前方。</p>
+<p>入度数为n的节点需要等到其n个前驱全都被排序完后，才能被加入到线性序列的最后。</p>
+<p>因此，拓扑排序可以如下完成：</p>
+<ol>
+<li>
+<p>先对图中的所有节点都计算一下其入度数，存放在一个临时数组里；</p>
+</li>
+<li>
+<p>利用入度数数组找到所有入度数为0的顶点，让它们进入一个队列中；</p>
+</li>
+<li>
+<p>从队列中取出一个顶点，更新其拓扑结构：把所有它相邻的节点的入度数减1。</p>
+</li>
+</ol>
+<p>当某个相邻节点的入度数减为0时，将其放入队列。</p>
+<ol>
+<li>重复的进行 2，3步的操作，直到队列为空</li>
+</ol>
+<p>如果还有顶点没有输出，那么说明图中存在环。这种图不符合AOV网的定义。</p>
+<p>拓扑排序的具体执行和广度优先遍历很相似：二者都是这样的结构：</p>
+<pre class="mermaid"><code>graph LR
+A["Unvisited Set"]
+B["队列"]
+A --&gt;|"rule"| B
+B --&gt;|"update"| A
+C["Visited Set"]
+B --&gt;|"被出队的节点"| C</code></pre>
+<p>rule 指的是满足特定规则且位于未被访问的集合中的顶点才可以进入队列；</p>
+<p>update 指的是队列中的元素在出队后，需要对其执行一些操作来让Unvisited Set中的其他集合可以入队。</p>
+<p>对于拓扑排序来说，rule是指“节点入度为0”，update是“节点的所有相邻点的入度减一“</p>
+<p>对于BFS来说，rule 是”没有一个节点可以直接进入队列“，update是“此节点的所有相邻点全部入队”</p>
+<p>也就是说，这个队列类似于“邀请制”：一开始只有一个节点在队列里；每次从队列中删除节点时，才会把被删除节点的相邻点放入队列；Unvisited Set里的点无法主动进入队列。</p>
+<h3 id="_15">拓扑排序的实现</h3>
+<p><code>LQueue</code> 是栈和队列部分提到的一个链式队列。</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Arrays</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AOVSort</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 用于存储计算出的每个节点的入度数</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">in_number</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="nf">sort</span><span class="p">(</span><span class="n">Graph</span><span class="w"> </span><span class="n">g</span><span class="p">){</span>
+<span class="w">        </span><span class="n">in_number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="n">g</span><span class="p">.</span><span class="na">n</span><span class="p">()</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="n">g</span><span class="p">.</span><span class="na">n</span><span class="p">()</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">cursor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="n">LQueue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">queue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LQueue</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="c1">// 先计算当前的入度数</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="w"> </span><span class="n">g</span><span class="p">.</span><span class="na">n</span><span class="p">();</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Edge</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">g</span><span class="p">.</span><span class="na">first</span><span class="p">(</span><span class="n">i</span><span class="p">);</span><span class="n">e</span><span class="o">!=</span><span class="kc">null</span><span class="p">;</span><span class="n">e</span><span class="o">=</span><span class="n">g</span><span class="p">.</span><span class="na">next</span><span class="p">(</span><span class="n">e</span><span class="p">)){</span>
+<span class="w">                </span><span class="n">in_number</span><span class="o">[</span><span class="n">e</span><span class="p">.</span><span class="na">v2</span><span class="p">()</span><span class="o">]++</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="c1">// 把所有初始入度数为0的节点入队</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">g</span><span class="p">.</span><span class="na">n</span><span class="p">();</span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">in_number</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">queue</span><span class="p">.</span><span class="na">enqueue</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">queue</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">()){</span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">queue</span><span class="p">.</span><span class="na">dequeue</span><span class="p">();</span>
+<span class="w">            </span><span class="n">result</span><span class="o">[</span><span class="n">cursor</span><span class="o">++]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="p">;</span>
+<span class="w">            </span><span class="c1">// 如果已经处理了所有节点，就直接结束循环</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cursor</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">g</span><span class="p">.</span><span class="na">n</span><span class="p">())</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Edge</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">g</span><span class="p">.</span><span class="na">first</span><span class="p">(</span><span class="n">v</span><span class="p">);</span><span class="n">e</span><span class="o">!=</span><span class="kc">null</span><span class="p">;</span><span class="n">e</span><span class="o">=</span><span class="n">g</span><span class="p">.</span><span class="na">next</span><span class="p">(</span><span class="n">e</span><span class="p">)){</span>
+<span class="w">                </span><span class="c1">// 把以当前节点为开头的所有弧的弧尾节点的入度数-1.</span>
+<span class="w">                </span><span class="n">in_number</span><span class="o">[</span><span class="n">e</span><span class="p">.</span><span class="na">v2</span><span class="p">()</span><span class="o">]--</span><span class="p">;</span>
+<span class="w">                </span><span class="c1">// 如果有节点入度数为0了，就把此节点入队。</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">in_number</span><span class="o">[</span><span class="n">e</span><span class="p">.</span><span class="na">v2</span><span class="p">()</span><span class="o">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">){</span>
+<span class="w">                    </span><span class="n">queue</span><span class="p">.</span><span class="na">enqueue</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">v2</span><span class="p">());</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="_16">最短路径问题</h2>
+<h3 id="_17">概念</h3>
+<p><strong>路径的代价</strong></p>
+<ul>
+<li>
+<p>对于无权图来说，路径的代价就是指路径的长度</p>
+</li>
+<li>
+<p>对于有权图来说，路径的代价是指这个路径所经过的所有边上的权重之和</p>
+</li>
+</ul>
+<p><strong>最短路径</strong></p>
+<p>给定两个顶点A和B，从A到B的一条有向简单路径。而且：不存在另外一条这样的路径且有更小的代价</p>
+<p>最短路径问题中，权值可能有如下情况：</p>
+<ol>
+<li>权值全部相等</li>
+<li>权值全部为正</li>
+<li>存在负权值</li>
+<li>存在正权值环（无意义）</li>
+<li>存在负权值环（无意义，因为无法让权值最小）</li>
+</ol>
+<p>我们学习的的算法目前只能处理1，2种情况。</p>
+<h3 id="_18">三种具体问题</h3>
+<ol>
+<li>源点-汇点最短路径（Source Sink Shortest Path)</li>
+</ol>
+<blockquote>
+<p>从图G= (V，E）中，给定一个起始顶点s和一个结束顶点t，在图中找出从s到t的一条最短路径</p>
+<p>这种问题最终都会转化为第二种最短路径问题</p>
+</blockquote>
+<ol>
+<li>单源最短路径(Single Source Shortest Path)</li>
+</ol>
+<blockquote>
+<p>从图G= (v，E）中，找出从某个给定源顶点s∈v到v中的每个顶点的最短路径</p>
+</blockquote>
+<ol>
+<li>全源最短路径（all-pairs shortest-paths)</li>
+</ol>
+<blockquote>
+<p>对于图G=(v，E)，对任意的v，u$\in$v，都能知道v和u之间的最短路径值</p>
+</blockquote>
+<p>具体的解决方法：</p>
+<ul>
+<li>不带权值的图的最短路径</li>
+</ul>
+<p>不管哪种具体问题，都可以直接用广度优先遍历解决</p>
+<ul>
+<li>只包含正权值的图的最短路径</li>
+</ul>
+<p>求：单源最短路径：使用Dijkstra算法</p>
+<p>求每对顶点间的最短路径：使用|V|次Dijkstra算法或者使用Floyd算法</p>
+<ul>
+<li>存在负权值的图的最短路径</li>
+</ul>
+<p>单源最短路径：Bellman-ford算法</p>
+<p>全源最短路径：Floyd算法（为什么不用|V|次Bellman-ford算法呢？因为它太慢太慢了）</p>
+<p>我们仅学习 Dijkstra 算法。</p>
+<h3 id="dijkstra">最短路径的 Dijkstra 算法</h3>
+<p>这种算法也符合BFS和拓扑排序遵循的那种总体的结构。这种结构长这样：</p>
+<pre class="mermaid"><code>graph LR
+A["Unvisited Set"]
+B["队列"]
+A --&gt;|"rule"| B
+B --&gt;|"update"| A
+C["Visited Set"]
+B --&gt;|"被出队的节点"| C</code></pre>
+<p>利用BFS搜索思想，只不过将顶点从一个集合拉到另一个集合的规则不同</p>
+<p>这种算法需要两个辅助数组：</p>
+<p>d 数组：用于存放起始点到每个点目前已知的最短的路径</p>
+<p>pi 数组：用于存放每个终点的起点-自己路径上，自己的直接前驱是谁。</p>
+<p>入队规则：从d数组中找出最小值，把最小值对应的节点入队。</p>
+<p>update：出队的点对某个点进行松弛之后，如果发现经过这个点到达终点的路径会最短，就修改终点在d数组的值。</p>
+<h4 id="_19">算法思想</h4>
+<ol>
+<li>
+<p>按路径代价递增的次序产生最短路径</p>
+</li>
+<li>
+<p>设集合S存放已经求得的最短路径的终点，从V-S中选择一个顶点t，t是目前所有还没有求得最短路径顶点中与V0之间的距离最短的顶点；然后进行<strong>松弛</strong>操作。</p>
+</li>
+</ol>
+<p><strong>松弛</strong>：如果起始节点经过节点 t 到另一个节点 a 的距离比直接从起始节点到节点 a 的距离短（即小于 d[a] 处的值），就把 d[a] 的值更新为这个更短的距离，并把 PI 数组的第.a 位改为 t 的索引。</p>
+<blockquote>
+<p>回忆一下：PI 数组存储了起点-每个节点的额路径上，结束节点的直接前驱是哪个节点</p>
+</blockquote>
+<p><img alt="Dijkstra算法的实现" src="https://telegraph-image-5ms.pages.dev/file/5bd4f7dfdb6ccb6a6ea5e.png" /></p>
+<h4 id="_20">算法分析</h4>
+<p>需要扫描|V|次</p>
+<blockquote>
+<p>每次扫描都需要扫描|V|个顶点以求得最短路径值的顶点</p>
+</blockquote>
+<p>每扫描到一条边就需要更新一次distance值，由于有|E|条边，所以需更新|E|次</p>
+<p>总的时间消耗为O(|V|<sup>2</sup>+|E|)</p>
+<h4 id="_21">算法的具体实现、</h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Arrays</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Dijkstra</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">PI</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">d</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="nf">dijkstra</span><span class="p">(</span><span class="n">Graph</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">s</span><span class="p">){</span>
+<span class="w">        </span><span class="n">PI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="n">g</span><span class="p">.</span><span class="na">n</span><span class="p">()</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="n">g</span><span class="p">.</span><span class="na">n</span><span class="p">()</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="w"> </span><span class="n">g</span><span class="p">.</span><span class="na">n</span><span class="p">();</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">            </span><span class="c1">// 初始化所有节点的最短距离估计值</span>
+<span class="w">            </span><span class="n">d</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">MAX_VALUE</span><span class="p">;</span>
+<span class="w">            </span><span class="n">g</span><span class="p">.</span><span class="na">setMark</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">d</span><span class="o">[</span><span class="n">s</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">g</span><span class="p">.</span><span class="na">n</span><span class="p">();</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">            </span><span class="c1">// 获得 d 数组中记录的，距离本节点最近的节点是哪个</span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">minVertex</span><span class="p">(</span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="p">);</span>
+<span class="w">            </span><span class="c1">// 如果此节点不可到达，则忽略</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">d</span><span class="o">[</span><span class="n">v</span><span class="o">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">MAX_VALUE</span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+<span class="w">            </span><span class="n">g</span><span class="p">.</span><span class="na">setMark</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Edge</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">g</span><span class="p">.</span><span class="na">first</span><span class="p">(</span><span class="n">v</span><span class="p">);</span><span class="n">w</span><span class="o">!=</span><span class="kc">null</span><span class="p">;</span><span class="n">w</span><span class="o">=</span><span class="n">g</span><span class="p">.</span><span class="na">next</span><span class="p">(</span><span class="n">w</span><span class="p">)){</span>
+<span class="w">                </span><span class="c1">// 进行“松弛”操作</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">d</span><span class="o">[</span><span class="n">w</span><span class="p">.</span><span class="na">v2</span><span class="p">()</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">d</span><span class="o">[</span><span class="n">v</span><span class="o">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">g</span><span class="p">.</span><span class="na">weight</span><span class="p">(</span><span class="n">w</span><span class="p">)){</span>
+<span class="w">                    </span><span class="n">d</span><span class="o">[</span><span class="n">w</span><span class="p">.</span><span class="na">v2</span><span class="p">()</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="o">[</span><span class="n">v</span><span class="o">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">g</span><span class="p">.</span><span class="na">weight</span><span class="p">(</span><span class="n">w</span><span class="p">);</span>
+<span class="w">                    </span><span class="n">PI</span><span class="o">[</span><span class="n">w</span><span class="p">.</span><span class="na">v2</span><span class="p">()</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="p">;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">d</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">minVertex</span><span class="p">(</span><span class="n">Graph</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">d</span><span class="p">){</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">min_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">MAX_VALUE</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">d</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">g</span><span class="p">.</span><span class="na">getMark</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">                </span><span class="n">min_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">g</span><span class="p">.</span><span class="na">n</span><span class="p">();</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">g</span><span class="p">.</span><span class="na">getMark</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">d</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">min_value</span><span class="p">){</span>
+<span class="w">                </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">                </span><span class="n">min_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">start</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="_22">算法的改进</h4>
+<p>利用<strong>优先队列</strong>寻找 d 数组中的最小值。</p>
+<p>总的时间消耗为O((|V|+|E|) log|E|)</p>
+<h2 id="_23">最小支撑树</h2>
+<p><strong>定义</strong></p>
+<p>给定一个<strong>连通无向图G</strong>，且它的每条边均有相应的长度或权值，则MST是一个包括G中的<strong>所有顶点及其边子集的图</strong>，边的子集满足下列条件:</p>
+<ol>
+<li>
+<p>这个子集中所有边的权之和为所有子集中最小的</p>
+</li>
+<li>
+<p>子集中的边能够保证整个图的所有顶点都是联通的</p>
+</li>
+</ol>
+<p><strong>环性质</strong></p>
+<p>假设T是一个<strong>有权无向图</strong>G=(V,E)的MST，如果选择一条属于E，但不属于T的边e加入到MST,从而使T形成一个环时，那么这个环中的任意一条边f都洞足如下关系</p>
+<blockquote>
+<p>weight(f) &lt;= weight(e)</p>
+</blockquote>
+<p><img alt="最小支撑树的例子" src="https://telegraph-image-5ms.pages.dev/file/7319adbb78c6d8c42ebea.png" /></p>
+<p>举个例子，如果我把AE拉进来，则A-C-F-E-A构成一个环。而且，A-E的权值9比A-C,C-F,E-F这三段的权值都大。</p>
+<p>这是因为，如果A-E比A-C的权值小，那我完全可以扔掉A- C，加入A-E；此时MST就改变了</p>
+<p><strong>分割性质</strong></p>
+<p>设集合U和W是图G=(V,E)的顶点集合的两个子集,这两个顶点子集将图分成了两部分，其中e是所有能够连接两个部分中权最小的边，那么e将是MST的一条边
+<img alt="最小支撑树的分割性质" src="https://telegraph-image-5ms.pages.dev/file/3edf3eeed89d678a1fd5c.png" /></p>
+<ol>
+<li>能一条边都不选吗？不能，那样的话最小支撑树就无法保证所有的顶点的连通了。</li>
+<li>如果两条边的权值相等而且都最小，那么选哪一条边都可以</li>
+</ol>
+<h3 id="prim">Prim 算法——从点出发</h3>
+<ol>
+<li>
+<p>选择图中的任意一个顶点 N 开始，认为最小支撑树的初始状态为只包含顶点 N。</p>
+</li>
+<li>
+<p>计算最小支撑树中<strong>每个</strong>顶点到不在最小支撑树中的<strong>每个</strong>顶点之间的距离</p>
+</li>
+<li>
+<p>选择这些距离中最小的那条边，并将这条边中的不在最小支撑树的那个顶点加入到 MST 中（这利用了 MST 的分割性质）</p>
+</li>
+</ol>
+<p>由于这里有着“选择最小”的需求，因此可以使用堆做优化。</p>
+<ol>
+<li>重复步骤2和3，直到所有顶点都加入了最小支撑树为止。</li>
+</ol>
+<p><img alt="最小支撑树的Prim算法" src="https://telegraph-image-5ms.pages.dev/file/c93c4adf2ba0d0984ae69.png" /></p>
+<h3 id="kruskal">Kruskal 算法</h3>
+<p>这个算法基于之前学习的并查集。</p>
+<ol>
+<li>
+<p>设连通网  N 由顶点集 V 和关系集合 E 组成，令最小生成树初始状态为只有 n 个顶点而没有边的非连通图，此时每个顶点自成一个连通分量。 </p>
+</li>
+<li>
+<p>在 E 中选取代价最小的边，若该边两侧的顶点落在 T 中不同的连通分量上（就是加上这条边之后，最小支撑树内不会形成环），则将此边加入到 T 中；否则，忽略此边，选取除了此边外代价最小的边。 </p>
+</li>
+<li>
+<p>持续的进行上一个步骤，直至 T 中所有顶点都能相互连通。</p>
+</li>
+</ol>
+<p>图片的例子如下： </p>
+<p><img alt="最小支撑树的Kruskal算法" src="https://telegraph-image-5ms.pages.dev/file/3cbb0484f9904768c2a75.png" /></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+  <h2 id="__comments">评论</h2>
+  <!-- Insert generated snippet here -->
+  <script src="https://giscus.app/client.js"
+        data-repo="yan-xiaoo/yan-xiaoo.github.io"
+        data-repo-id="R_kgDOJBXnnw"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJBXnn84CdeSD"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+  </script>
+
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    // Set palette on initial load
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate"
+        ? "transparent_dark"
+        : "light"
+
+      // Instruct Giscus to set theme
+      giscus.setAttribute("data-theme", theme) 
+    }
+
+    // Register event handlers after documented loaded
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate"
+            ? "transparent_dark"
+            : "light"
+
+          // Instruct Giscus to change theme
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../%E6%A0%91%E5%92%8C%E6%A3%AE%E6%9E%97/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 树和森林">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                树和森林
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../%E6%9F%A5%E6%89%BE%E5%92%8C%E6%95%A3%E5%88%97/" class="md-footer__link md-footer__link--next" aria-label="下一页: 查找和散列">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                查找和散列
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023-now <a href="https://github.com/yan-xiaoo" target="_blank" rel="noopener noreferrer">yan-xiaoo</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/yan-xiaoo" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["search.highlight", "search.share", "search.suggest", "header.autohide", "content.code.copy", "content.code.annotate", "navigation.tabs", "navigation.sections", "navigation.tracking", "navigation.footer", "navigation.indexes", "navigation.top", "toc.follow"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,53 @@
+:root{
+  --md-code-font: "JetBrains Mono";
+  --md-text-font: "JetBrains Mono"
+}
+[data-md-color-scheme=default] {
+    --md-primary-fg-color:        #46499c;
+    --md-primary-fg-color--light: #8e8dc8;
+    --md-primary-fg-color--dark:  #2e2c69;
+    
+  }
+
+[data-md-color-scheme=slate] {
+    --md-hue: 10;
+    --md-saturation: 3%;
+    --md-lightness: 10%;
+    --md-default-bg-color: hsla(var(--md-hue), var(--md-saturation), var(--md-lightness), 1);
+    --md-default-bg-color--light: hsla(var(--md-hue), var(--md-saturation), var(--md-lightness), 0.54);
+    --md-default-bg-color--lighter: hsla(var(--md-hue), var(--md-saturation), var(--md-lightness), 0.26);
+    --md-default-bg-color--lightest: hsla(var(--md-hue), var(--md-saturation), var(--md-lightness), 0.07);
+    --md-default-fg-color: hsla(var(--md-hue), 75%, 95%, 1);
+    --md-default-fg-color--light: hsla(var(--md-hue), 75%, 90%, 0.62);
+    --md-default-fg-color--lighter: hsla(var(--md-hue), 75%, 90%, 0.32);
+    --md-default-fg-color--lightest: hsla(var(--md-hue), 75%, 90%, 0.12);
+    --md-code-bg-color: hsla(var(--md-hue), 3%, 17%, 1);
+
+    color-scheme: dark;
+
+    --md-primary-fg-color: #553b94;
+    --md-primary-fg-color--light: #c4c1d7;
+    --md-primary-fg-color--dark: #4e496f;
+    --md-primary-bg-color: #fff;
+    --md-primary-bg-color--light: #ffffffb3;
+
+    --md-typeset-a-color: #9a72ca;
+
+    /* 链接被鼠标悬浮的颜色 */
+    --md-accent-fg-color: #9a72ca;
+    --md-accent-fg-color--transparent: #c4d6f221;
+    --md-accent-bg-color: #fff;
+    --md-accent-bg-color--light: #ffffffb3;
+    --md-typeset-color: var(--md-default-fg-color);
+
+    --md-code-fg-color: hsla(var(--md-hue), 18%, 86%, 1);
+    --md-code-bg-color: hsla(var(--md-hue), 3%, 17%, 1);
+    --md-code-hl-color: #4287ff26;
+    --md-code-hl-number-color: #e6695b;
+    --md-code-hl-special-color: #f06090;
+    --md-code-hl-function-color: #c973d9;
+    --md-code-hl-constant-color: #9383e2;
+    --md-code-hl-keyword-color: #6791e0;
+    --md-code-hl-string-color: #2fb170;
+}
+

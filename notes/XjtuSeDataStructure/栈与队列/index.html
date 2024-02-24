@@ -1,0 +1,3172 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人在学习中的一些记录">
+      
+      
+        <meta name="author" content="李彦筱">
+      
+      
+        <link rel="canonical" href="https://yan-xiaoo.github.io/notes/XjtuSeDataStructure/%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/">
+      
+      
+        <link rel="prev" href="../%E7%BA%BF%E6%80%A7%E8%A1%A8/">
+      
+      
+        <link rel="next" href="../%E4%BA%8C%E5%8F%89%E6%A0%91/">
+      
+      
+        <link rel="alternate" type="application/rss+xml" title="RSS 订阅" href="../../../feed_rss_created.xml">
+        <link rel="alternate" type="application/rss+xml" title="已更新内容的 RSS 订阅" href="../../../feed_rss_updated.xml">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.11">
+    
+    
+      
+        <title>栈与队列 - 彦筱的小站</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e359304.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans SC";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="彦筱的小站" class="md-header__button md-logo" aria-label="彦筱的小站" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            彦筱的小站
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              栈与队列
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/yan-xiaoo/yan-xiaoo.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    yan-xiaoo.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../blog/" class="md-tabs__link">
+          
+  
+    
+  
+  博客
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../%E5%89%8D%E8%A8%80/" class="md-tabs__link">
+          
+  
+    
+  
+  课程笔记
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="彦筱的小站" class="md-nav__button md-logo" aria-label="彦筱的小站" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    彦筱的小站
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/yan-xiaoo/yan-xiaoo.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    yan-xiaoo.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../blog/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    博客
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            博客
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    归档
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            归档
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/archive/2024/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2024
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/archive/2023/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2023
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    分类
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            分类
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/category/requests/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    requests
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/category/%E6%91%86%E7%83%82/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    摆烂
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/category/%E6%97%A5%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    日记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/category/%E8%87%AA%E5%8A%A8%E5%8C%96/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    自动化
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    课程笔记
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            课程笔记
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    西安交大：数据结构与算法
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            西安交大：数据结构与算法
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%89%8D%E8%A8%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    前言
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E7%AE%80%E4%BB%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据结构与算法简介
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E5%AD%A6%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数学预备知识
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AE%97%E6%B3%95%E5%A4%8D%E6%9D%82%E5%BA%A6%E7%9A%84%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    算法复杂度的分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    排序算法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%BA%BF%E6%80%A7%E8%A1%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    线性表
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    栈与队列
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    栈与队列
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      栈
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="栈">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adt" class="md-nav__link">
+    <span class="md-ellipsis">
+      栈的 ADT
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      顺序栈（栈的数组实现）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      链式栈（栈的链表实现）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      链式栈的实现（老师给的代码）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      栈和递归的关系
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="栈和递归的关系">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      自顶向下，逐步分解的策略
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      递归过程：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      递归的工作栈
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      递归过程中栈应用的例子
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      栈式递归的启示
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      通用的方法：转化递归为递推
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      栈的应用
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="栈的应用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      判断符号的平衡
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="判断符号的平衡">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      算法描述
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      算法的实现
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      混合算术表达式的计算
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="混合算术表达式的计算">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      后缀运算符计算的算法描述
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      后缀表达式与中缀表达式的转换
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="后缀表达式与中缀表达式的转换">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      一步到位的计算
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      队列
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="队列">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adt_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      队列的 ADT
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      队列的数组实现
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="队列的数组实现">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      方案一
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      方案二
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      方案三：循环数组
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      数组实现的具体代码
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      队列的链表实现
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="队列的链表实现">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      链表实现的代码
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      队列的应用：基数排序
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="队列的应用：基数排序">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      桶排序
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      桶排序的算法分析
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      桶排序的局限性与改进
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      基数排序
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      基数排序的时间复杂度分析
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      基数排序的局限
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%BA%8C%E5%8F%89%E6%A0%91/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    二叉树
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A0%91%E5%92%8C%E6%A3%AE%E6%9E%97/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    树和森林
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%9B%BE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    图
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%9F%A5%E6%89%BE%E5%92%8C%E6%95%A3%E5%88%97/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    查找和散列
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      栈
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="栈">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adt" class="md-nav__link">
+    <span class="md-ellipsis">
+      栈的 ADT
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      顺序栈（栈的数组实现）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      链式栈（栈的链表实现）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      链式栈的实现（老师给的代码）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      栈和递归的关系
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="栈和递归的关系">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      自顶向下，逐步分解的策略
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      递归过程：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      递归的工作栈
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      递归过程中栈应用的例子
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      栈式递归的启示
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      通用的方法：转化递归为递推
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      栈的应用
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="栈的应用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      判断符号的平衡
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="判断符号的平衡">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      算法描述
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      算法的实现
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      混合算术表达式的计算
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="混合算术表达式的计算">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      后缀运算符计算的算法描述
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      后缀表达式与中缀表达式的转换
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="后缀表达式与中缀表达式的转换">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      一步到位的计算
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      队列
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="队列">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adt_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      队列的 ADT
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      队列的数组实现
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="队列的数组实现">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      方案一
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      方案二
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      方案三：循环数组
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      数组实现的具体代码
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      队列的链表实现
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="队列的链表实现">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      链表实现的代码
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      队列的应用：基数排序
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="队列的应用：基数排序">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      桶排序
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      桶排序的算法分析
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      桶排序的局限性与改进
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      基数排序
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      基数排序的时间复杂度分析
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      基数排序的局限
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="_1">栈和队列</h1>
+<blockquote>
+<p>作者：李彦筱</p>
+<p>感谢学长 <a href="https://github.com/yijunquan-afk">yijunquan</a> 的<a href="https://github.com/yijunquan-afk/XJTUSE-NOTES">软件工程笔记</a>给我的启发。此笔记从二叉树开始的部分中使用了学长笔记中的部分图片以及文字。
+</p>
+</blockquote>
+<h2 id="_2">栈</h2>
+<p>首先记住：<strong>栈是线性表</strong>。</p>
+<blockquote>
+<p>线性表的定义：除了表头和表尾之外，每个元素都有一个直接前驱与直接后继</p>
+</blockquote>
+<p>特别之处：<strong>栈只允许在一端进行插入和删除</strong>，只有<strong>1个删除位置，1个插入位置，1个可访问位置</strong>。</p>
+<p>栈的性质：存储/删除元素的顺序于元素到达的顺序相反，即<strong>后进先出</strong></p>
+<p>栈的那唯一一个插入和删除位置叫做<strong>栈顶</strong></p>
+<ul>
+<li>向栈顶插入元素：入栈或者压栈</li>
+<li>从栈顶删除元素：出栈</li>
+</ul>
+<h3 id="adt">栈的 ADT</h3>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">Stack</span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 前三个为栈必须拥有的三个操作</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">push</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">o</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Object</span><span class="w"> </span><span class="nf">pop</span><span class="p">();</span>
+<span class="w">    </span><span class="n">Object</span><span class="w"> </span><span class="nf">topValue</span><span class="p">();</span>
+<span class="w">    </span><span class="c1">// 下面是三个辅助操作，没有也行</span>
+<span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isFull</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isEmpty</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">clear</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="_3">顺序栈（栈的数组实现）</h3>
+<p>区别：没有了<code>current</code>成员（因为栈只需要在最上方插入/删除元素）</p>
+<pre class="mermaid"><code>classDiagram
+class AStack{
+    -int size
+    -Object[] listarray
+    -int top
+    +push(Object o): void
+    +pop(): Object
+    +topValue(): Object
+    +isFull(): boolean
+    +isEmpty(): boolean
+    +clear(): void
+}
+</code></pre>
+<p>具体实现的函数：</p>
+<p><strong>注意 top 实际指向当前栈顶+1的位置</strong>（称为指向新的栈顶）。因此，插入时<strong>直接插入到top的位置</strong>，删除时<strong>先把top-1再删除</strong>，取元素时<strong>返回top-1位置的元素</strong>。</p>
+<p>这样的好处是，top 实际上就代表了<strong>栈里目前有多少元素</strong>。</p>
+<p>插入：</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">push</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">o</span><span class="p">){</span>
+<span class="w">    </span><span class="k">assert</span><span class="w"> </span><span class="o">!</span><span class="n">isFull</span><span class="p">():</span><span class="w"> </span><span class="s">&quot;Stack is overflow&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">listarray</span><span class="o">[</span><span class="n">top</span><span class="o">++]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">o</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>删除：</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="nf">pop</span><span class="p">(){</span>
+<span class="w">    </span><span class="k">assert</span><span class="w"> </span><span class="o">!</span><span class="n">isEmpty</span><span class="p">():</span><span class="w"> </span><span class="s">&quot;Stack is empty&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">listarray</span><span class="o">[--</span><span class="n">top</span><span class="o">]</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>获取栈顶元素</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="nf">topValue</span><span class="p">(){</span>
+<span class="w">    </span><span class="k">assert</span><span class="w"> </span><span class="o">!</span><span class="n">sEmpty</span><span class="p">():</span><span class="w"> </span><span class="s">&quot;No element&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">listarray</span><span class="o">[</span><span class="n">top</span><span class="o">-</span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>检查是否已满</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isFull</span><span class="p">(){</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">size</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>检查是否为空</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isEmpty</span><span class="p">(){</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>清空栈</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">clear</span><span class="p">(){</span>
+<span class="w">    </span><span class="n">top</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>还有一种方法：<strong>可以让top指向真正的栈顶</strong>。这种情况下，插入时先把top+1再插入，删除时先删除再top-1，取元素时直接取top位置的元素。判满的实现：检查 top+1 == size；判空的检查：top == -1（<strong>令空栈的指针指向-1，判空时判断top是否为-1即可</strong>）</p>
+<blockquote>
+<p>这种把指针位置设为-1来表示空的方法在很多的数据结构中都会用到。</p>
+</blockquote>
+<h3 id="_4">链式栈（栈的链表实现）</h3>
+<p>具体成员如下：</p>
+<pre class="mermaid"><code>classDiagram
+class LStack{
+    -Node top
+    +push(Object o): void
+    +pop(): Object
+    +topValue(): Object
+    +isFull(): boolean
+    +isEmpty(): boolean
+    +clear(): void
+}
+class Node{
+    -Node next;
+    -Object obj;
+    +next(): Node
+    +setNext(Node n): void
+    +value(): Oject
+    +setValue(Object o): void
+}
+LStack &lt;|-- Node</code></pre>
+<p>数据成员中的 top 指向栈顶；而<strong>链表的表头在这里作为栈顶</strong>；插入时，在<strong>链表表头插入</strong>；删除时，<strong>删除链表表头节点</strong>。</p>
+<p>链表的表头既方便插入还方便删除；而链表的表尾只适合于插入（删除的话需要 O(n) 的复杂度）。由于栈需要在同一端（栈顶）插入与删除，显然把链表表头作为栈顶是最合适的。</p>
+<h3 id="_5">链式栈的实现（老师给的代码）</h3>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">LStack</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">{</span>
+<span class="w">    </span><span class="c1">//在 LStack 类中定义个了一个内部静态类，且声明其访问性为 private。如果这样做了，那么这个内部类只能被 LStack 类所使用</span>
+<span class="w">    </span><span class="c1">//有很多时候，某一个类需要使用一个新类型，而这个新类型其实只需要被这个类所使用，此时就可以采用内部类的方式来实现，以增强其封装性。</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">LinkedNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">{</span>
+<span class="w">        </span><span class="n">T</span><span class="w"> </span><span class="n">element</span><span class="p">;</span>
+<span class="w">        </span><span class="n">LinkedNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">next</span><span class="p">;</span>
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="nf">LinkedNode</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">element</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">LinkedNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">next</span><span class="p">){</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="na">element</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">element</span><span class="p">;</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="na">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">next</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">LinkedNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">top</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">length</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">LStack</span><span class="p">(){</span>
+<span class="w">        </span><span class="n">top</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">        </span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">push</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">element</span><span class="p">){</span>
+<span class="w">        </span><span class="n">top</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LinkedNode</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">element</span><span class="p">,</span><span class="w"> </span><span class="n">top</span><span class="p">);</span>
+<span class="w">        </span><span class="n">length</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="nf">pop</span><span class="p">(){</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="n">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">        </span><span class="n">LinkedNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">top</span><span class="p">;</span>
+<span class="w">        </span><span class="n">T</span><span class="w"> </span><span class="n">element</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">.</span><span class="na">element</span><span class="p">;</span>
+<span class="w">        </span><span class="n">top</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">top</span><span class="p">.</span><span class="na">next</span><span class="p">;</span>
+<span class="w">        </span><span class="n">temp</span><span class="p">.</span><span class="na">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">        </span><span class="n">length</span><span class="o">--</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">element</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isEmpty</span><span class="p">(){</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isFull</span><span class="p">(){</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="nf">topValue</span><span class="p">(){</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">top</span><span class="p">.</span><span class="na">element</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">length</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">length</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">clear</span><span class="p">(){</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+<span class="w">        </span><span class="k">while</span><span class="p">(</span><span class="n">top</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">){</span>
+<span class="w">            </span><span class="n">LinkedNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">top</span><span class="p">;</span>
+<span class="w">            </span><span class="n">top</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">top</span><span class="p">.</span><span class="na">next</span><span class="p">;</span>
+<span class="w">            </span><span class="n">temp</span><span class="p">.</span><span class="na">element</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">            </span><span class="n">temp</span><span class="p">.</span><span class="na">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">StringBuilder</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">((</span><span class="n">length</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span>
+<span class="w">        </span><span class="n">LinkedNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">top</span><span class="p">;</span>
+<span class="w">        </span><span class="n">out</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;&lt; &quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">while</span><span class="p">(</span><span class="n">temp</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">){</span>
+<span class="w">            </span><span class="n">out</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">temp</span><span class="p">.</span><span class="na">element</span><span class="p">);</span>
+<span class="w">            </span><span class="n">out</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">.</span><span class="na">next</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">out</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;&gt;&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">out</span><span class="p">.</span><span class="na">toString</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="_6">栈和递归的关系</h2>
+<p>对象递归：一个对象的定义中包含它自身</p>
+<p>算法的递归：一个算法函数执行时调用了他自己</p>
+<h3 id="_7">自顶向下，逐步分解的策略</h3>
+<ol>
+<li>
+<p>子问题应该与父问题做同样的事，且更加简单</p>
+</li>
+<li>
+<p>解决递归问题：把规模比较大的问题分解为一个或者若干个<strong>规模更小的</strong>问题，再分别对这些比较小的问题求解，再综合他们的结果，得到原问题的解——分治法</p>
+</li>
+</ol>
+<blockquote>
+<p>一般情况下是一分为二；分为其他个数（比如三个）也不是不可以，但编程起来比较不方便</p>
+</blockquote>
+<ol>
+<li>这些比较小的问题的求解方法应该与原先问题一样</li>
+</ol>
+<h3 id="_8">递归过程：</h3>
+<p>递归过程的特点：</p>
+<ul>
+<li>实现时需要自己调用自己</li>
+<li>层层向下递归，而且退出函数调用的次序与调用的次序正好相反</li>
+<li>这种次序与栈入栈出栈的特性正好一致</li>
+</ul>
+<p>外部与内部调用</p>
+<ul>
+<li>主程序第一次调用递归函数为外部调用</li>
+<li>每次递归函数调用自身称为内部调用</li>
+</ul>
+<h3 id="_9">递归的工作栈</h3>
+<p>每次递归调用都需要为过程中的参数，变量等分配存储空间</p>
+<p>每次调用的参数-返回地址-局部变量 统称为<strong>活动记录块</strong></p>
+<p>每次调用的活动记录以栈的方式组织。栈中压入的每个数据都是一个活动记录块。</p>
+<h3 id="_10">递归过程中栈应用的例子</h3>
+<p>下面是一个递归的函数，以及它的调用树</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">recursive</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">n</span><span class="p">){</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">){</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span><span class="p">{</span>
+<span class="w">        </span><span class="n">recursive</span><span class="p">(</span><span class="n">n</span><span class="o">/</span><span class="mi">2</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">n</span><span class="o">%</span><span class="mi">2</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<pre class="mermaid"><code>flowchart TB
+A["recursive(7)"]
+B["recursive(3)"]
+C["recursive(1)"]
+D["print(7%2)"]
+E["print(3%2)"]
+F["print(1)"]
+A --&gt; B
+A --&gt; D
+B --&gt; C
+B --&gt; E
+C --&gt; F
+</code></pre>
+<p>每次调用时：系统向着系统栈内放入主调函数的<strong>活动记录</strong>。一个活动记录包含三个部分：</p>
+<ol>
+<li>主调函数的局部变量</li>
+<li>主调函数的参数</li>
+<li>调用发生的地址（调用完成后应该返回哪里）。</li>
+</ol>
+<p>每次一个函数执行结束之后：系统从系统栈内弹出栈顶，利用活动记录块中的局部变量，恢复之前函数的执行环境；利用调用发生的地址，决定应该在哪里继续执行主调函数。</p>
+<h3 id="_11">栈式递归的启示</h3>
+<p>每次递归，系统都需要创建活动记录块保存现场，压栈；结束时，需要弹出栈顶的活动块，恢复现场；这是比较慢的。既然已经知道了递归的特点和实现的原理，可不可以优化函数，使得其<strong>不需要递归就能完成任务</strong>？</p>
+<p>老师讲了一种方法：自己维护一个<strong>用户栈</strong>，以便在不使用系统栈的情况下，进行某些递归的操作，但实际不需要递归调用。一般来讲，用户栈中需要保存的东西的大小小于系统栈里的活动记录块。（如果反而更大了，那还不如不优化了）</p>
+<p>比如，上边的递归函数可以改为：</p>
+<div class="highlight"><pre><span></span><code><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">useStack</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">n</span><span class="p">){</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">){</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Number out of range&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">Stack</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LStack</span><span class="p">();</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">){</span>
+<span class="w">        </span><span class="n">s</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+<span class="w">        </span><span class="n">n</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">s</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">()){</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">pop</span><span class="p">()</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>这时的用户栈不需要保存返回地址，只需要保存n的值，因此存储内容小于递归版本。</p>
+<h3 id="_12">通用的方法：转化递归为递推</h3>
+<p>有的时候，你会发现，使用用户栈需要存储的东西实在是太多了，还不如直接递归呢！</p>
+<p>下面就是一种通用的，优化递归的方法：创建“自己的活动记录”</p>
+<p>举一个把汉诺塔算法从递归转化为递推的例子。</p>
+<p>汉诺塔算法的实现大概是这样：</p>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">TOH</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">end</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">temp</span><span class="p">){</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="o">==</span><span class="mi">1</span><span class="p">){</span>
+<span class="w">        </span><span class="n">move</span><span class="p">(</span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="n">end</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">TOH</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="n">temp</span><span class="p">,</span><span class="w"> </span><span class="n">end</span><span class="p">);</span>
+<span class="w">    </span><span class="n">move</span><span class="p">(</span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="n">end</span><span class="p">);</span>
+<span class="w">    </span><span class="n">TOH</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">temp</span><span class="p">,</span><span class="w"> </span><span class="n">end</span><span class="p">,</span><span class="w"> </span><span class="n">start</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>（不需要关心这个代码是怎么来的；反正我们的工作只是把它转化为递推的）</p>
+<p>这个函数中包含两种任务：</p>
+<ol>
+<li>move()</li>
+<li>TOH() 。这个任务是一个递归的任务</li>
+</ol>
+<p>我们需要创建一个活动记录块类，来记录我们到底想执行什么任务；再创建一个存放这种活动记录块的栈，把这些记录块放进栈里。然后，从栈中取出活动记录块，根据这个记录块记录的任务类型，执行对应的操作。如果这个操作中包含递归调用，就创建一个代表递归调用的活动记录块放回栈里。</p>
+<p>对于这个函数而言，活动记录块需要存储这些内容：</p>
+<ol>
+<li>参数：start, goal, end 三个参数</li>
+<li>类型：到底需要执行 move 还是 TOH 任务</li>
+</ol>
+<p>活动记录块类可以如下定义：</p>
+<div class="highlight"><pre><span></span><code><span class="kd">enum</span><span class="w"> </span><span class="n">ActivityType</span><span class="p">{</span>
+<span class="w">    </span><span class="n">TOH</span><span class="p">,</span><span class="w"> </span><span class="n">MOVE</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Activity</span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">start</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">goal</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">ActivityType</span><span class="w"> </span><span class="n">type</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Activity</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">temp</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">goal</span><span class="p">,</span><span class="w"> </span><span class="n">ActivityType</span><span class="w"> </span><span class="n">type</span><span class="p">){</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">start</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">goal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">goal</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">type</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>具体改写方法为：</p>
+<ol>
+<li>
+<p>在栈中放入一个初始的活动记录块</p>
+</li>
+<li>
+<p>当栈不为空的时候，弹出栈顶的记录块</p>
+</li>
+<li>
+<p>根据记录块的类型（type）执行对应的操作。如果需要递归，就创建一个新的活动记录块，记录下递归调用的参数之后，放入栈中。</p>
+</li>
+</ol>
+<p>注意由于栈后进先出的特性，你想要最晚调用的函数应当被最早放入栈中。</p>
+<p>具体的实现：</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">TOH</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">TOH</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">end</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">temp</span><span class="p">){</span>
+<span class="w">        </span><span class="n">LStack</span><span class="o">&lt;</span><span class="n">Activity</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LStack</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Activity</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="n">temp</span><span class="p">,</span><span class="w"> </span><span class="n">end</span><span class="p">,</span><span class="w"> </span><span class="n">ActivityType</span><span class="p">.</span><span class="na">TOH</span><span class="p">));</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">stack</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">()){</span>
+<span class="w">            </span><span class="n">Activity</span><span class="w"> </span><span class="n">record</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="na">pop</span><span class="p">();</span>
+<span class="w">            </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">record</span><span class="p">.</span><span class="na">type</span><span class="p">){</span>
+<span class="w">                </span><span class="k">case</span><span class="w"> </span><span class="n">TOH</span><span class="p">:</span>
+<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">record</span><span class="p">.</span><span class="na">n</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">continue</span><span class="p">;</span>
+<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">record</span><span class="p">.</span><span class="na">n</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">){</span>
+<span class="w">                        </span><span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Activity</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">record</span><span class="p">.</span><span class="na">start</span><span class="p">,</span><span class="w"> </span><span class="n">record</span><span class="p">.</span><span class="na">temp</span><span class="p">,</span><span class="w"> </span><span class="n">record</span><span class="p">.</span><span class="na">goal</span><span class="p">,</span><span class="w"> </span><span class="n">ActivityType</span><span class="p">.</span><span class="na">MOVE</span><span class="p">));</span>
+<span class="w">                        </span><span class="k">continue</span><span class="p">;</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                    </span><span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Activity</span><span class="p">(</span><span class="n">record</span><span class="p">.</span><span class="na">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">record</span><span class="p">.</span><span class="na">temp</span><span class="p">,</span><span class="w"> </span><span class="n">record</span><span class="p">.</span><span class="na">start</span><span class="p">,</span><span class="w"> </span><span class="n">record</span><span class="p">.</span><span class="na">goal</span><span class="p">,</span><span class="w"> </span><span class="n">ActivityType</span><span class="p">.</span><span class="na">TOH</span><span class="p">));</span>
+<span class="w">                    </span><span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Activity</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">record</span><span class="p">.</span><span class="na">start</span><span class="p">,</span><span class="w"> </span><span class="n">record</span><span class="p">.</span><span class="na">temp</span><span class="p">,</span><span class="w"> </span><span class="n">record</span><span class="p">.</span><span class="na">goal</span><span class="p">,</span><span class="w"> </span><span class="n">ActivityType</span><span class="p">.</span><span class="na">MOVE</span><span class="p">));</span>
+<span class="w">                    </span><span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Activity</span><span class="p">(</span><span class="n">record</span><span class="p">.</span><span class="na">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">record</span><span class="p">.</span><span class="na">start</span><span class="p">,</span><span class="w"> </span><span class="n">record</span><span class="p">.</span><span class="na">goal</span><span class="p">,</span><span class="w"> </span><span class="n">record</span><span class="p">.</span><span class="na">temp</span><span class="p">,</span><span class="w"> </span><span class="n">ActivityType</span><span class="p">.</span><span class="na">TOH</span><span class="p">));</span>
+<span class="w">                    </span><span class="k">break</span><span class="p">;</span>
+<span class="w">                </span><span class="k">case</span><span class="w"> </span><span class="n">MOVE</span><span class="p">:</span>
+<span class="w">                    </span><span class="n">move</span><span class="p">(</span><span class="n">record</span><span class="p">.</span><span class="na">start</span><span class="p">,</span><span class="w"> </span><span class="n">record</span><span class="p">.</span><span class="na">goal</span><span class="p">);</span>
+<span class="w">                    </span><span class="k">break</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">goal</span><span class="p">){</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;move &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; to &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">goal</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>理论上，任何的递归调用都可以使用此方法转化为非递归的。</p>
+<h2 id="_13">栈的应用</h2>
+<p>栈最好用的特点就在于它的<strong>后进先出</strong>的性质。围绕这一核心性质，栈有着许多应用：</p>
+<h3 id="_14">判断符号的平衡</h3>
+<p>很多的标点符号或者其他啥子符号，比如 <code>() [] '' "" {}</code> ，是需要成对出现的。</p>
+<p>我们把这些成对符号当中左侧的符号叫做<strong>开符号</strong>，右侧的叫做<strong>闭符号</strong>。规定：</p>
+<ul>
+<li>每个开符号都需要对应一个闭符号</li>
+<li>当看到一个闭符号时，距离此闭符号最近的，左侧的，未匹配的开符号必须能与此闭符号匹配</li>
+</ul>
+<p>这种情况下称为符号平衡。</p>
+<p>由于需要存储开符号来匹配，而且每次检查开闭符号的匹配性时，检查的是最近插入的开符号，因此栈非常适合于完成此任务。只要每次给出的闭符号和栈顶的开符号匹配全部成功；而且栈空的时候，闭符号也没了，那么符号就正好匹配了。</p>
+<h4 id="_15">算法描述</h4>
+<ul>
+<li>建立一个空的栈</li>
+<li>读入字符序列直到结尾</li>
+<li>如果符号是一个开符号，入栈</li>
+<li>如果符号是一个闭符号：若栈为空，闭符号多，失败；如果栈不为空，弹出栈顶；如果栈顶符号和此闭符号不匹配，那么失败</li>
+<li>如果字符序列结束后栈不为空，开符号多，报错；为空，则匹配成功结束</li>
+</ul>
+<h4 id="_16">算法的实现</h4>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BracketMatching</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">//利用栈完成括号匹配</span>
+<span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">match</span><span class="p">(</span><span class="kt">char</span><span class="o">[]</span><span class="n">exp</span><span class="p">){</span>
+<span class="w">        </span><span class="kt">char</span><span class="w"> </span><span class="n">stack</span><span class="o">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">char</span><span class="o">[</span><span class="n">exp</span><span class="p">.</span><span class="na">length</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">top</span><span class="o">=-</span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">exp</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">exp</span><span class="o">[</span><span class="n">i</span><span class="o">]==</span><span class="sc">&#39;(&#39;</span><span class="p">){</span>
+<span class="w">                </span><span class="n">stack</span><span class="o">[++</span><span class="n">top</span><span class="o">]=</span><span class="sc">&#39;(&#39;</span><span class="p">;</span><span class="c1">//遇到&#39;(&#39;则入栈</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">exp</span><span class="o">[</span><span class="n">i</span><span class="o">]==</span><span class="sc">&#39;)&#39;</span><span class="p">){</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">top</span><span class="o">==-</span><span class="mi">1</span><span class="p">){</span>
+<span class="w">                    </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="c1">//栈空说明&#39;)&#39;比&#39;(&#39;多，不匹配</span>
+<span class="w">                </span><span class="p">}</span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="o">--</span><span class="n">top</span><span class="p">;</span><span class="c1">//栈不空则将栈中的一个&#39;(&#39;弹出</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">top</span><span class="o">==-</span><span class="mi">1</span><span class="p">){</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="c1">//栈空则说明所有括号都被处理掉</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="c1">//否则括号不匹配</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">BracketMatching</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BracketMatching</span><span class="p">();</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;((1+1)+(2+1)))&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">char</span><span class="o">[]</span><span class="w"> </span><span class="n">exp</span><span class="o">=</span><span class="n">string</span><span class="p">.</span><span class="na">toCharArray</span><span class="p">();</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">string</span><span class="o">+</span><span class="s">&quot;括号匹配: &quot;</span><span class="o">+</span><span class="n">test</span><span class="p">.</span><span class="na">match</span><span class="p">(</span><span class="n">exp</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="_17">混合算术表达式的计算</h3>
+<p>其实，栈的应用也不局限于算术表达式的计算；理论上，栈可以解析任何的表达式。</p>
+<p>中缀表达式的定义：</p>
+<p>6 + 3 * (4+5) - 2 这种算式就是一个中缀表达式。</p>
+<ul>
+<li>由操作数和操作符构成</li>
+<li>操作数出现在操作符的左侧或者/和右侧</li>
+<li>一个中缀表达式的计算顺序由各个操作符和操作数一同决定；不是从头向尾计算就行</li>
+</ul>
+<p>计算机计算中缀表达式是困难的（人倒是好算），因为：</p>
+<ul>
+<li>
+<p>计算机基本是按流的方式从左到右的输入，无法“先看一部分”；人可以做到“优先看哪一个部分”</p>
+</li>
+<li>
+<p>如果遇到一个操作符，这个操作符由于优先级的问题，可能无法立刻使用 <em>优先级问题</em></p>
+</li>
+</ul>
+<blockquote>
+<p>比如 2 + 3 * 5，总不能看见第一个操作符就把 2+3 给算了吧</p>
+</blockquote>
+<ul>
+<li>即使一个操作符可以使用，它后边的第二个操作数可能还不能使用（需要先计算后面的操作数） <em>结合性问题</em></li>
+</ul>
+<blockquote>
+<p>比如 3 * (2+5)当中，3 * 无法被计算，除非先计算出（2+5）的结果</p>
+</blockquote>
+<p>后缀表达式：给计算机看的表达式</p>
+<ul>
+<li>解决了中缀表达式在处理时的 优先级 和 结合性 问题，因为它根本没有这两个概念</li>
+<li>遇到一个操作符时，总能简单的找到他的操作数（结合性问题）</li>
+<li>只需要从左向右执行，没有优先级问题（优先级问题）</li>
+</ul>
+<blockquote>
+<p>3+4*（5+6）-3 &gt; 3456+*+-3-</p>
+</blockquote>
+<p>后缀运算符的特点：<strong>读取到的操作符使用最后读到的操作数</strong></p>
+<p>比如 3456 四个操作数入栈后，碰到+操作符，就需要弹出栈顶的两个数（最后读到的操作数）5和6，并且把它们加起来。之后，把（5+6）的结果再压栈。</p>
+<blockquote>
+<p>每次碰到操作符的时候，需要弹出几个数取决于运算符的要求；在这里，所有的运算符都是双目运算符，因此全都需要弹出两个数字。</p>
+</blockquote>
+<h4 id="_18">后缀运算符计算的算法描述</h4>
+<p>先建立一个操作数栈，用于存放数字。</p>
+<ol>
+<li>从左向右扫描字符串，遇到操作数的话，将其压入操作数栈里</li>
+<li>遇到操作符的话，从操作数栈中弹出对应数量的操作数，根据操作符的含义对这几个操作数计算；计算结果压入操作数栈中</li>
+<li>字符串扫描完成后，操作数栈中的唯一一个元素就是运算结果</li>
+</ol>
+<h3 id="_19">后缀表达式与中缀表达式的转换</h3>
+<p>显然，后缀表达式的计算很简单；但是，这又引起了一个问题：怎么把中缀表达式转换为后缀表达式？</p>
+<p>总不能让人自己计算：你都转换完了，干吗不直接把结果算出来得了？</p>
+<p>因此，需要一个自动化的算法，把中缀表达式转换为后缀表达式。</p>
+<p>转换的特点：</p>
+<ul>
+<li>中缀表达式和后缀表达式<strong>操作数</strong>的顺序一致；但是，操作符的顺序发生了变化。</li>
+</ul>
+<blockquote>
+<p>3 + 4 * (5+6) - 3 -&gt; 3456+*+3-</p>
+</blockquote>
+<ul>
+<li>通过对中缀表达式添加括号，去掉表达式优先级对运算符优先级的依赖即可</li>
+</ul>
+<blockquote>
+<p>3 + 4 * (5+6) - 3 -&gt; ((3+(4*(5+6)))-3) -&gt; ((3(4(56+)*)+)3-)</p>
+<p>把加了括号之后，每个括号内的运算符移动到对应的括号的后边，即可得到后缀表达式</p>
+</blockquote>
+<p>不过，由于机器不认识符号的优先级，这种方法不适用于编程的实现。</p>
+<p>机器算法：</p>
+<p>建立一个操作符栈，用于存放操作符</p>
+<ol>
+<li>
+<p>从左到右扫描中缀表达式</p>
+</li>
+<li>
+<p>遇到操作数的时候，立刻输出到后缀表达式里；</p>
+</li>
+</ol>
+<p>遇到操作符的话，需要分情况看待：</p>
+<ul>
+<li>操作符栈为空的话，把运算符压入操作符栈里</li>
+<li>当当前运算符号不是括号（且栈不空）时，从栈中弹出运算符，直到发现运算优先级比当前运算符号更低的运算符为止。输出所有被弹出的运算符到后缀表达式中</li>
+<li>当运算符为(时，压入栈中</li>
+<li>
+<p>当运算符为)时，从栈中弹出运算符，直到遇到（符号。输出所有被弹出的运算符到后缀表达式中，不过，不包含（）括号。</p>
+</li>
+<li>
+<p>扫描完表达式后，把所有操作符栈中剩余的元素全部弹出，并输出到中缀表达式里。</p>
+</li>
+</ul>
+<h4 id="_20">一步到位的计算</h4>
+<p>有没有一种方法，让我们不需要把中缀表达式转换为后缀，再计算后缀表达式，而是直接计算中缀表达式？</p>
+<p>中缀表达式 -&gt; 后缀表达式：需要一个栈用于存放操作符</p>
+<p>后缀表达式的计算：需要一个栈来存放操作数，每碰到一个运算符，就弹出对应数量的操作数。</p>
+<p>因此，我们创建两个栈，一个存放操作数，一个存放操作符。</p>
+<p>每扫描到一个操作数，就把它直接放入栈中。</p>
+<p>运算符能入栈的标准：</p>
+<ul>
+<li>
+<p>栈是空的</p>
+</li>
+<li>
+<p>栈不空时，扫描到的运算符的优先级大于栈顶运算符的优先级</p>
+</li>
+</ul>
+<blockquote>
+<p>假如栈顶是 +，运算符也是 + ，那么应该先算栈里的，不允许入栈</p>
+<p>因为目前我们处理的符号 + - * / 全是左结合的（在两个符号优先级相同时，全都是从左向右算）；栈里的操作符一定是在左侧的。</p>
+<p>如果要计算 \^ 运算符（它是一个右结合运算符），那么当栈顶运算符和扫描到的运算符优先级一样时，应该把新的运算符压入栈中，而不是弹出栈顶元素并计算</p>
+</blockquote>
+<p>在不满足这两个标准的任何一个时，需要立刻从运算符栈中弹出栈顶，从操作数栈中弹出对应数量的数字，运算后重新压回操作数栈中。之后，再次检查扫描到的运算符能不能入栈。</p>
+<blockquote>
+<p>最多的情况下，假如栈里头的所有运算符的优先级都比新的高，等到栈里头所有运算符算完就可以让新的符号入栈了。</p>
+</blockquote>
+<p>注意：</p>
+<p>括号的优先级是最高的，在未入栈之前可以压制所有运算符，使得它一定可以入栈，保障了括号内的运算；但是，如果他的优先级一直是最高的话，那么它入栈之后，任何操作符的尝试入栈都会导致它弹出来并被计算；这是不正确的，因为这种情况下，括号就没有规范优先级的意义了。因此规定：</p>
+<p><strong>左括号在入栈之前，优先级最高；入栈之后，优先级最低</strong></p>
+<p>右括号的作用：无限弹出操作符栈中的运算符并运算，直到找到操作符栈中的左括号（记着把左括号也弹了）</p>
+<p>当算式结束之后：弹出操作符栈中的所有操作符并且进行运算。</p>
+<h2 id="_21">队列</h2>
+<p>队列也是一种<strong>操作受限的线性表</strong>。</p>
+<p>队列只允许两端中的某一端插入，在另一端只能删除。允许插入的那一端叫做队尾；允许删除的那一端叫做队首。</p>
+<p>队列的入队顺序和出队顺序完全相同；不像栈可以通过入栈，出栈的顺序变化改变元素出栈的顺序，队列在入队顺序不变时，只能有一种出队顺序。</p>
+<blockquote>
+<p>栈：1入1出2入2出3入3出 -&gt; 出栈顺序 123</p>
+<p>​      1入2入3入3出2出1出 -&gt; 出栈顺序 321</p>
+<p>队列：1入1出2入2出3入3出 -&gt; 出队顺序 123</p>
+<p>​       1入2入3入1出2出3出 -&gt; 出队顺序 123 不变</p>
+</blockquote>
+<p>队列的操作：</p>
+<ul>
+<li>向队尾插入元素称为入队</li>
+<li>从队首删除元素称为出队</li>
+</ul>
+<h3 id="adt_1">队列的 ADT</h3>
+<pre class="mermaid"><code>classDiagram
+class Queue{
+    +Queue()
+    +enqueue(Object o): void
+    +dequeue(): Object
+    +firstValue(): Object
+    +isEmpty(): boolean
+    +isFull(): boolean
+}</code></pre>
+<h3 id="_22">队列的数组实现</h3>
+<pre class="mermaid"><code>classDiagram
+class AQueue{
+    -int defaultSize
+    -int size
+    -int front
+    -int rear
+    -Object[] listarray
+    +AQueue()
+    +enqueue(Object o): void
+    +dequeue(): Object
+    +firstValue(): Object
+    +isEmpty(): boolean
+    +isFull(): boolean
+}</code></pre>
+<p>由于队列的数组实现需要使用循环数组，因此事实上，队列的数组实现实际比链表实现困难。</p>
+<p>数组中对队首和队尾位置的设置方式有好几个方案：</p>
+<h4 id="_23">方案一</h4>
+<p>将队首设置为数组开头；将队尾设置为数组最后一个实际元素的位置</p>
+<table>
+<thead>
+<tr>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>空</th>
+<th>空</th>
+<th>空</th>
+<th>空</th>
+<th>空</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>入队：O(1) 出队：O(n) （相当于一个普通线性表中删除表头）</p>
+<p>队空判断：rear == front</p>
+<p>队满的判断：rear == size - 1</p>
+<p>队长度: rear + 1</p>
+<h4 id="_24">方案二</h4>
+<p>把队首设置为不固定的，出队的时候，把队首+1即可；队尾还是数组实际的最后一个元素的位置。</p>
+<table>
+<thead>
+<tr>
+<th>空</th>
+<th>空</th>
+<th>空</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>空</th>
+<th>空</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>入队:O(1) 不变</p>
+<p>出队：队首位置 +1 即可，O(1)</p>
+<p>队空：rear == front</p>
+<p>队满：rear == size -1</p>
+<blockquote>
+<p>由于这种实现下，元素出队之后，队首前面的位置就浪费了（没用了），无法再被队列使用，因此这是一种“假满”。</p>
+<table>
+<thead>
+<tr>
+<th>空</th>
+<th>空</th>
+<th>空</th>
+<th>空</th>
+<th>空</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>比如这个队列，看起来前面还是空的可以用，但是实际上，前面的空间已经没法再次插入/使用了。</p>
+<p>而且，这种实现下，假如数组长度是10，你插入10个数据再删除10个，这个队列就没法用了。这可不太妙……</p>
+</blockquote>
+<p>队长度：rear - front + 1</p>
+<h4 id="_25">方案三：循环数组</h4>
+<p>通过对索引取模的方法，让数组的开头那些空出来的空间可以被再次的使用，从而克服“假满”的现象。允许队列从数组最高编号的位置延续到编号最低的位置。这种东西可以通过取模操作实现</p>
+<p>入队操作：O(1) <code>rear = (rear + 1) % size</code></p>
+<p>出队操作：O(1) <code>front = (front + 1) % size</code></p>
+<p>问题来了：介于现在 rear 甚至可以到 front 前面，那么应该如何判断队列是空的还是满的？</p>
+<p>队列中元素全满：</p>
+<table>
+<thead>
+<tr>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td>rear</td>
+<td>front</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>队列中马上就空：</p>
+<table>
+<thead>
+<tr>
+<th>空</th>
+<th>空</th>
+<th>1</th>
+<th>空</th>
+<th>空</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td>rear/front</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>队列为空: （因为出队的时候 front 会 +1）</p>
+<table>
+<thead>
+<tr>
+<th>空</th>
+<th>空</th>
+<th>空</th>
+<th>空</th>
+<th>空</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td>rear</td>
+<td>front</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>显然，不可以再使用 <code>rear + 1 == front</code> 来判断空/满了。那应该怎么判断？</p>
+<blockquote>
+<p>详细证明：为什么此时一定有两种元素个数状态无法使用 front 和 rear 的位置关系区分？</p>
+<p>这是因为一个长度为5的数组长度有6种（0，1，2，3，4，5），但是front一定时，rear只有五个位置可去(0,1,2,3,4），总有两个长度会对应到相同的front-rear关系。</p>
+<p>目前没法区分的是元素个数为0和满的两种个数状态。现在，这两种状态下，都有 rear + 1 == front</p>
+</blockquote>
+<p>一种方案：状态位，设置一个布尔变量，存储队列是否空了。</p>
+<p>缺点：每次对队列操作时都需要校验/修改这个状态位，很麻烦</p>
+<p>另一种方案：为数组增加一个元素位置（就像链表的哑节点），并更改 front 和 rear 指向的位置</p>
+<blockquote>
+<p>证明：为什么多一个不存储内容的数组元素后，就可以使用 front 和 rear 的位置关系表示数组中所有元素个数的情况？</p>
+</blockquote>
+<p>front ：指向队首的<strong>前一个元素</strong></p>
+<p>rear：指向队尾的实际位置</p>
+<table>
+<thead>
+<tr>
+<th>空</th>
+<th>空</th>
+<th>空</th>
+<th>空</th>
+<th>空</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td>front/rear</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>3</th>
+<th>4</th>
+<th></th>
+<th>1</th>
+<th>2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>rear</td>
+<td>front</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>此时，front == rear 时队空，rear与front差1时队满。</p>
+<p>入队：<code>rear = (rear + 1) % size</code></p>
+<p>出队：<code>front = (front + 1) % size</code></p>
+<p>队满：<code>(rear + 1) % size == front</code></p>
+<p>队空：<code>rear == front</code></p>
+<p>判断队长度：</p>
+<p><code>(rear - front + size) % size</code></p>
+<p>在具体编写代码的时候，要记住只要使用(front+1)而不是直接使用front的话，都需要对max_size取余数。比如，</p>
+<p><code>array[front]</code> 不需要取余数；<code>array[(front+1)%max_size]</code>必须有这个取余数。  </p>
+<h4 id="_26">数组实现的具体代码</h4>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AQueue</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span><span class="p">{</span>
+<span class="w">    </span><span class="c1">//定义顺序队</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">DEFAULT_SIZE</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">max_size</span><span class="p">;</span><span class="c1">//定义队列的实际最大容纳量+1</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="c1">//队列中实际的元素个数</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">front</span><span class="p">;</span><span class="c1">//队首元素的前驱元素下标</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">rear</span><span class="p">;</span><span class="c1">//队尾元素下标</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">E</span><span class="o">[]</span><span class="w"> </span><span class="n">listArray</span><span class="p">;</span><span class="c1">//存储元素的下标</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setUp</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">){</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">max_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="n">front</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rear</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">listArray</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">E</span><span class="o">[]</span><span class="p">)</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Object</span><span class="o">[</span><span class="n">size</span><span class="o">]</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">AQueue</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">setUp</span><span class="p">(</span><span class="n">DEFAULT_SIZE</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">AQueue</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">){</span>
+<span class="w">        </span><span class="n">setUp</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">clear</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="c1">//清空队列元素</span>
+<span class="w">        </span><span class="n">front</span><span class="o">=</span><span class="n">rear</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">enqueue</span><span class="p">(</span><span class="n">E</span><span class="w"> </span><span class="n">it</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isFull</span><span class="p">())</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;队列已经满了&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">else</span><span class="p">{</span>
+<span class="w">            </span><span class="n">rear</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">rear</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">max_size</span><span class="p">;</span>
+<span class="w">            </span><span class="n">listArray</span><span class="o">[</span><span class="n">rear</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">it</span><span class="p">;</span>
+<span class="w">            </span><span class="n">size</span><span class="o">++</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">E</span><span class="w"> </span><span class="nf">dequeue</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;队列是空的&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">else</span><span class="p">{</span>
+<span class="w">            </span><span class="n">front</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">front</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">max_size</span><span class="p">;</span>
+<span class="w">            </span><span class="n">size</span><span class="o">--</span><span class="p">;</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">listArray</span><span class="o">[</span><span class="n">front</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">E</span><span class="w"> </span><span class="nf">firstValue</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;队列是空的&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">else</span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">listArray</span><span class="o">[</span><span class="p">(</span><span class="n">front</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="n">max_size</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">front</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">rear</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isFull</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">front</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">(</span><span class="n">rear</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">max_size</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">size</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">size</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="_27">队列的链表实现</h3>
+<pre class="mermaid"><code>classDiagram
+class LQueue{
+    -Link front
+    -Link end
+    +LQueue()
+    #Setup()
+    +enqueue(Object o): void
+    +dequeue(): Object
+    +firstValue(): Object
+    +isEmpty(): boolean
+    +isFull(): boolean
+}</code></pre>
+<p>链表的<strong>表头适合插入和删除，表尾适合插入而不适合删除</strong></p>
+<p>因为表尾删除时需要找到其前驱，从前驱中去掉对表尾的引用；表头没有前驱，把表头改一下就删掉旧表头了。</p>
+<p>权衡之下，应该让表尾作为队尾（插入），表头作为队首（用于删除）</p>
+<p>判断队空：检查 front 和 rear 是不是都指向 null</p>
+<p>判断队满：直接返回 false，链式存储结构满不了</p>
+<p>入队：只修改 rear 指向的东西</p>
+<p>出队：只修改 front 指向的东西</p>
+<p>我个人感觉队列的链式实现其实比数组实现更符合直觉一点，因为循环数组实在不太常见…</p>
+<h4 id="_28">链表实现的代码</h4>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">LQueue</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">LinkNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">{</span>
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">element</span><span class="p">;</span>
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="n">LinkNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">next</span><span class="p">;</span>
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="nf">LinkNode</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">element</span><span class="p">,</span><span class="w"> </span><span class="n">LinkNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">next</span><span class="p">){</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="na">element</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">element</span><span class="p">;</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="na">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">next</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">LinkNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">front</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">LinkNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">rear</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">LQueue</span><span class="p">(){</span>
+<span class="w">        </span><span class="n">front</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rear</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">enqueue</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">element</span><span class="p">){</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isEmpty</span><span class="p">()){</span>
+<span class="w">            </span><span class="n">front</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rear</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LinkNode</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">element</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">else</span><span class="p">{</span>
+<span class="w">            </span><span class="n">rear</span><span class="p">.</span><span class="na">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LinkNode</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">element</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span>
+<span class="w">            </span><span class="n">rear</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rear</span><span class="p">.</span><span class="na">next</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="nf">dequeue</span><span class="p">(){</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">        </span><span class="n">T</span><span class="w"> </span><span class="n">element</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">topValue</span><span class="p">();</span>
+<span class="w">        </span><span class="n">front</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">front</span><span class="p">.</span><span class="na">next</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">front</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="n">rear</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">element</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="nf">topValue</span><span class="p">(){</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">front</span><span class="p">.</span><span class="na">element</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isEmpty</span><span class="p">(){</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">front</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">rear</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isFull</span><span class="p">(){</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">clear</span><span class="p">(){</span>
+<span class="w">        </span><span class="n">front</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rear</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">(){</span>
+<span class="w">        </span><span class="n">StringBuilder</span><span class="w"> </span><span class="n">builder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">();</span>
+<span class="w">        </span><span class="n">builder</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;&lt; &quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">LinkNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">front</span><span class="p">;</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">temp</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">){</span>
+<span class="w">            </span><span class="n">builder</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">temp</span><span class="p">.</span><span class="na">element</span><span class="p">.</span><span class="na">toString</span><span class="p">()).</span><span class="na">append</span><span class="p">(</span><span class="sc">&#39; &#39;</span><span class="p">);</span>
+<span class="w">            </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">.</span><span class="na">next</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">builder</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="sc">&#39;&gt;&#39;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">builder</span><span class="p">.</span><span class="na">toString</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="_29">队列的应用：基数排序</h2>
+<p>时间复杂度表现最好的排序算法是什么？</p>
+<ul>
+<li>归并排序：O(nlogn) 稳定</li>
+<li>快速排序：平均情形 O(nlogn)，最坏情形 O(n<sup>2</sup>)，不稳定</li>
+</ul>
+<p>有没有比 O(nlogn) 更快的排序算法？</p>
+<p>限制：<strong>基于比较</strong>的排序算法在最坏情况下的下限为 Ω(nlogn)</p>
+<blockquote>
+<p>大Ω标记在这里的意义是：无论如何优化，排序算法<strong>最坏情况下</strong>的时间复杂度<strong>一定不低于nlogn级别</strong></p>
+<p>具体的证明在二叉树那块的末尾</p>
+</blockquote>
+<p>突破口：<strong>创建不基于比较的排序算法</strong>，以便绕过此限制。如何实现不基于比较的排序算法呢？这种排序算法<strong>对于关键码有一定的要求</strong>。需要假设：</p>
+<ul>
+<li>待排序的关键码都是整数</li>
+<li>待排序的关键码值位于一个有限的范围内（不过可以重复）</li>
+</ul>
+<p>在这种条件下，可以在不进行比较时，设计出一种速度更快的排序算法。</p>
+<h3 id="_30">桶排序</h3>
+<p>算法的思路：</p>
+<ul>
+<li>确定关键码的范围（假设其为0-m-1)</li>
+<li>初始化 m 个桶（每个桶即是容器，目前可以用线性表，栈，队列来表示。在这里使用线性表实现。）</li>
+<li>按顺序扫描关键码序列。对于 i，把它放入第 i 个桶的最后</li>
+<li>按照桶的序号从小到大，每个桶从前到后（先入先出）的顺序输出所有数据。比如：</li>
+</ul>
+<p>5 2 3 1 1 0 2 3 4（数据序列）</p>
+<p>下面是 [0, 5] 的6个桶：</p>
+<p>0: 0</p>
+<p>1:1 -&gt; 1</p>
+<p>2: 2 -&gt; 2</p>
+<p>3: 3 -&gt; 3</p>
+<p>4: 4</p>
+<p>5: 5</p>
+<p>输出： (0) -&gt; (1 -&gt; 1) -&gt; (2 -&gt; 2) -&gt; (3 -&gt; 3) -&gt; (4) -&gt; (5)</p>
+<h3 id="_31">桶排序的算法分析</h3>
+<p>桶排序需要哪些时间步骤呢？</p>
+<ol>
+<li>为每一桶分配空间。由于需要 m 个桶（假设关键码的范围为 m），创建桶需要 O(m) 的时间。</li>
+<li>把每个关键码放到它该去的桶里。这个动作叫做<strong>分配</strong>。由于有 n 个关键码，分配步骤需要 O(n) 的时间</li>
+<li>从桶中按顺序取出 n 个关键码。这个动作叫做<strong>回收</strong>。需要 O(n) 的时间。</li>
+</ol>
+<p>综上：需要 O(m) + O(2n) -&gt; O(m+n) 的时间。<strong>当数据范围m小于数据个数n的时候</strong>，时间复杂度在 O(n) 内。</p>
+<h3 id="_32">桶排序的局限性与改进</h3>
+<p>桶排序限制了：</p>
+<ol>
+<li>关键码必须在某一范围内</li>
+<li>关键码必须是整数或者能被表示成整数</li>
+<li>需要 O(n) 的额外空间</li>
+</ol>
+<p>桶排序的问题：</p>
+<p>桶的数量取决于待排序关键码的最大范围。如果关键码数量很少，但是数据范围很大，那桶排序的空间消耗就惨了。</p>
+<blockquote>
+<p>比如，1000个关键码，但是其中最大值为 99999999.</p>
+<p>可以看出，桶排序应用的瓶颈实际上是桶的数目。</p>
+</blockquote>
+<p>如何解决这一个问题呢？可以从关键码的进制上下手。关键码如果是十进制整数，那么它的每一位一定只能在 0-9 之间。怎么利用这一点呢？</p>
+<p>我们可以把关键码拆分成多个。比如，99 拆为 (9,9)，46 -&gt; (4, 6), 84 -&gt; (8, 4)，然后：先对最后一位桶排序，再对倒数第二位排序，以此类推……比如：</p>
+<p>(6, 6), (9, 9) , (4, 6), (4, 8):</p>
+<table>
+<thead>
+<tr>
+<th>0</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>(6, 6) (4, 6)</td>
+</tr>
+<tr>
+<td>7</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>(4, 8)</td>
+</tr>
+<tr>
+<td>9</td>
+<td>(9, 9)</td>
+</tr>
+</tbody>
+</table>
+<p>得到：(6,6) (4,6) (4,8) (9,9)。然后，对十位排序：</p>
+<table>
+<thead>
+<tr>
+<th>0</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>(4, 6) (4, 8)</td>
+</tr>
+<tr>
+<td>5</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>(6, 6)</td>
+</tr>
+<tr>
+<td>7</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>(9, 9)</td>
+</tr>
+</tbody>
+</table>
+<p>得到：(4,6) (4,8) (6,6) (9,9)</p>
+<p>(4,6) 和 (4,8) 的位置关系是如何保持的呢？这是因为，桶排序具有<strong>稳定性</strong>。<strong>相同关键码的内容在排序前后，其相对位置关系不会丢失</strong>。使用<strong>队列</strong>这种可以保持元素进入顺序与退出顺序一致的线性表，<strong>就可以保证桶排序的稳定性</strong>。</p>
+<p>这种把关键码按照位数拆分为多关键码的桶排序叫做<strong>基数排序</strong>。</p>
+<h3 id="_33">基数排序</h3>
+<p>多关键码，且具有稳定性的排序在使用时需要：</p>
+<ul>
+<li>确定关键码的“重要程度”。比如，高考成绩排序可能需要先按照总分排序，总分一样时再按语文，语文一样时再按数学，再按英语。</li>
+<li>排序时，<strong>先按照最不重要的关键码排序</strong>，再依次按照关键码重要程度逆序排序，直到<strong>最后按照最重要的关键码排序</strong>。比如在上面的例子里，先按照英语排序，再按照数学，再按照语文，再按总分排序。</li>
+</ul>
+<p>基数排序的具体算法：</p>
+<p>利用桶排序，但是设置的桶的数量并不是按照关键码数值大小的范围，而是按照某个特定的基数 <em>r</em>。通过此基数 r ，实现对关键码的分配过程。</p>
+<p>假设基数为10，排序对象是一般的十进制整数，那么，排序过程可以如下的进行：</p>
+<ol>
+<li>设置10个桶，代表0，1，2，3，5，6，7，8，9</li>
+<li>设置i=1</li>
+<li>进入第i次扫描。这次扫描当中：</li>
+<li>扫描每个数从右往左数的第i位。把数字放入第 <code>S[k] / 10&lt;sup&gt;i-1&lt;/sup&gt; % 10</code> 的桶里。</li>
+<li>在把所有数字都放到桶里之后，从桶中按照桶名字的顺序（0，1，2，...，9）把每个桶的数字拷贝回原先的数组当中</li>
+<li>i = i+1，直到i 超过数组中最大的数字的位数结束。</li>
+</ol>
+<h3 id="_34">基数排序的时间复杂度分析</h3>
+<p>桶排序的时间复杂度是 O(m+n) （其中m为桶的数量，n为数据的规模）。如果采用十进制，那么基数排序中 m = 10。</p>
+<p>基数排序需要执行多少次桶排序呢？答案是 log<sub>10</sub>max 次（如果 max 是最大的数据）。因此，基数排序的时间复杂度是：</p>
+<p>O(log<sub>r</sub>max * (m + n))。（r指的是选择的基数）</p>
+<p>如果max不算大的话，基数排序的时间复杂度大概在 O(n) 内。000000</p>
+<h3 id="_35">基数排序的局限</h3>
+<p>虽然基数排序已经不害怕很大的整数了，但它仍然有局限性：</p>
+<p><strong>没有明确的位数，或者没有固定范围的关键码无法使用基数排序。</strong></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+  <h2 id="__comments">评论</h2>
+  <!-- Insert generated snippet here -->
+  <script src="https://giscus.app/client.js"
+        data-repo="yan-xiaoo/yan-xiaoo.github.io"
+        data-repo-id="R_kgDOJBXnnw"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJBXnn84CdeSD"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+  </script>
+
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    // Set palette on initial load
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate"
+        ? "transparent_dark"
+        : "light"
+
+      // Instruct Giscus to set theme
+      giscus.setAttribute("data-theme", theme) 
+    }
+
+    // Register event handlers after documented loaded
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate"
+            ? "transparent_dark"
+            : "light"
+
+          // Instruct Giscus to change theme
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../%E7%BA%BF%E6%80%A7%E8%A1%A8/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 线性表">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                线性表
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../%E4%BA%8C%E5%8F%89%E6%A0%91/" class="md-footer__link md-footer__link--next" aria-label="下一页: 二叉树">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                二叉树
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023-now <a href="https://github.com/yan-xiaoo" target="_blank" rel="noopener noreferrer">yan-xiaoo</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/yan-xiaoo" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["search.highlight", "search.share", "search.suggest", "header.autohide", "content.code.copy", "content.code.annotate", "navigation.tabs", "navigation.sections", "navigation.tracking", "navigation.footer", "navigation.indexes", "navigation.top", "toc.follow"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      
+    
+  </body>
+</html>
