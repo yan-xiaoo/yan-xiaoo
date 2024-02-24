@@ -11,3 +11,18 @@
 - 浏览文章
   - 电脑端：点击上方标签
   - 移动端：点击左上角图标后选择
+
+
+本站支持 RSS 订阅。订阅地址：
+
+- 全部内容：
+  ```
+  https://yan-xiaoo.github.io/feed_rss_created.xml
+  ```
+- 更新内容：
+  ```
+  https://yan-xiaoo.github.io/feed_rss_updated.xml
+  ```
+
+
+[查看博客的内容](./blog/index.md)

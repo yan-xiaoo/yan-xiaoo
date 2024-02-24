@@ -1,6 +1,7 @@
-site_name: 个人博客
-site_url: http://yan-xiaoo.github.io
+site_name: 彦筱的小站
+site_url: https://yan-xiaoo.github.io
 site_author: 李彦筱
+site_description: 个人在学习中的一些记录
 
 repo_name: yan-xiaoo.github.io
 repo_url: https://github.com/yan-xiaoo/yan-xiaoo.github.io
@@ -68,6 +69,7 @@ plugins:
       post_readtime: true
       post_date_format: full
       authors_file: "{blog}/.author.yml"
+      pagination_per_page: 10
   - rss:
       match_path: blog/posts/.* 
       date_from_meta:
@@ -75,6 +77,8 @@ plugins:
       categories:
         - categories
         - tags
+      image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Feed-icon.svg/128px-Feed-icon.svg.png
+      json_feed_enabled: true
 
 extra:
   social:
